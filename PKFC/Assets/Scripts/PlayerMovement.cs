@@ -8,15 +8,14 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 input;
     private Rigidbody2D rb;
     public float dashSpeed;
-    private float dashTime;
-    public float startDashTime;
-    private int direction;
+    private bool isDashing = false;
+    public float dashDuration;
+    private float dashDurationStart;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        dashTime = startDashTime;
     }
 
     // Update is called once per frame
@@ -43,62 +42,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void Dash()
     {
-        if(direction == 0)
+        if (Input.GetKeyDown(KeyCode.Space) && isDashing == false)
+
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                direction = 1;
-                Debug.Log(direction);
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                direction = 2;
-                Debug.Log(direction);
-            }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                direction = 3;
-                Debug.Log(direction);
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                direction = 4;
-                Debug.Log(direction);
-            }         
+            Speed += dashSpeed;
+            isDashing = true;
+            dashDurationStart = dashDuration;
+        }
+        if (dashDurationStart <= 0 && isDashing == true)
+        {
+            Speed -= dashSpeed;
+            isDashing = false;
         }
         else
         {
-            if (dashTime <= 0)
-            {
-                direction = 0;
-                dashTime = startDashTime;
-                rb.velocity = Vector2.zero;                
-            }
-            else
-            {
-                dashTime -= Time.deltaTime;
-
-                if (direction == 1 && Input.GetKeyDown(KeyCode.Space))
-                {
-                    rb.velocity = Vector2.left * dashSpeed;
-                    Debug.Log("Dash");
-                }
-                else if (direction == 2 && Input.GetKeyDown(KeyCode.Space))
-                {
-                    rb.velocity = Vector2.right * dashSpeed;
-                    Debug.Log("Dash");
-                }
-                else if (direction == 3 && Input.GetKeyDown(KeyCode.Space))
-                {
-                    rb.velocity = Vector2.up * dashSpeed;
-                    Debug.Log("Dash");
-                }
-                else if (direction == 4 && Input.GetKeyDown(KeyCode.Space))
-                {
-                    rb.velocity = Vector2.down * dashSpeed;
-                    Debug.Log("Dash");
-                }
-            }
+            dashDurationStart -= Time.deltaTime;
         }
+
     }
 }
+
