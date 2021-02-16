@@ -6804,6 +6804,7 @@ GameObject:
   - component: {fileID: 2031193514}
   - component: {fileID: 2031193516}
   - component: {fileID: 2031193517}
+  - component: {fileID: 2031193518}
   m_Layer: 0
   m_Name: Male Character
   m_TagString: Player
@@ -6950,7 +6951,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.29999998, y: 0.48014653}
+    oldSize: {x: 0.32, y: 0.49014956}
     newSize: {x: 0.29999998, y: 0.48014653}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -6959,3 +6960,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.28914624, y: 0.45843878}
   m_EdgeRadius: 0
+--- !u!95 &2031193518
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031193511}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 431ad786041624f669f5f4ff8bc50fe1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
