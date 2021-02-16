@@ -3496,7 +3496,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -12
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5510382441765092197, guid: f7162b84863baba4bafb2589864e6802, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f7162b84863baba4bafb2589864e6802, type: 3}
 --- !u!224 &890246912 stripped
 RectTransform:
@@ -3685,7 +3686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   maxRange: 3
-  minRange: 0.78
+  minRange: 0.54
   meleeEnemy: 1
 --- !u!1 &1611479263
 GameObject:
