@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float Speed = 5f;
+    public Animator animator;
+
+    [SerializeField]
+    private float speed;
+
+
     private Vector3 input;
     private Rigidbody2D rb;
     public float dashSpeed;
@@ -12,17 +17,43 @@ public class PlayerMovement : MonoBehaviour
     public float dashDuration;
     private float dashDurationStart;
 
-    // Start is called before the first frame update
+    private float attackTime = 0.5f;
+    private float attackCounter = 0.5f;
+    private bool isAttacking;
+
+
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
+        
         Move();
         Dash();
+
+        if (isAttacking)
+        {
+            rb.velocity = Vector3.zero;  //se supone que esto deberia hacer que no pueda moverse mientras ataca pero no funciona xd
+
+            attackCounter -= Time.deltaTime;
+            if (attackCounter <= 0)
+            {
+                animator.SetBool("isAttacking", false);
+                isAttacking = false;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Attack();
+        }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,9 +66,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
-        Vector3 velocity = input.normalized * Speed;
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        input = new Vector3(horizontal, vertical, 0);
+        Vector3 velocity = input.normalized * speed;
         transform.position += velocity * Time.deltaTime;
+
+        animator.SetFloat("moveX", horizontal);
+        animator.SetFloat("moveY", vertical);
+
+        if (horizontal == 1 || horizontal == -1 || vertical == 1 || vertical == -1)
+        {
+            animator.SetFloat("lastMoveX", horizontal);
+            animator.SetFloat("lastMoveY", vertical);
+        }
+
+
     }
 
     public void Dash()
@@ -45,13 +90,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isDashing == false)
 
         {
-            Speed += dashSpeed;
+            speed += dashSpeed;
             isDashing = true;
             dashDurationStart = dashDuration;
         }
         if (dashDurationStart <= 0 && isDashing == true)
         {
-            Speed -= dashSpeed;
+            speed -= dashSpeed;
             isDashing = false;
         }
         else
@@ -60,4 +105,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+    void Attack()
+    {
+        attackCounter = attackTime;
+        animator.SetBool("isAttacking", true);
+        isAttacking = true;
+
+    }
+
 }
