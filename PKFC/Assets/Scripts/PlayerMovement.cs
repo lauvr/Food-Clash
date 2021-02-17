@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashDuration;
     private float dashDurationStart;
 
-    private bool isMoving;
+    //private bool isMoving;
 
     // Start is called before the first frame update
     void Start()
@@ -29,22 +29,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isMoving == true)
-        {
-            animator.SetBool("isMoving", true);
-            Debug.Log("is moving");
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
-            Debug.Log("is idle");
-
-            //animator.SetFloat("idleX", rb.rotation);
-            //animator.SetFloat("idleY", rb.rotation);
-
-            //Aqui va la animacion de idle que no supe como poner ;c
-
-        }
+        
 
         Move();
         Dash();
@@ -64,10 +49,6 @@ public class PlayerMovement : MonoBehaviour
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
-
-        
-        isMoving = horizontal != 0 || vertical != 0;
-
 
         input = new Vector3(horizontal, vertical, 0);
         Vector3 velocity = input.normalized * speed;
