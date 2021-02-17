@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float Speed = 5f;
+    public Animator animator;
+
+    [SerializeField]
+    private float speed;
+
+
     private Vector3 input;
     private Rigidbody2D rb;
     public float dashSpeed;
@@ -12,17 +17,39 @@ public class PlayerMovement : MonoBehaviour
     public float dashDuration;
     private float dashDurationStart;
 
+    private bool isMoving;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (isMoving == true)
+        {
+            animator.SetBool("isMoving", true);
+            Debug.Log("is moving");
+        }
+        else
+        {
+            animator.SetBool("isMoving", false);
+            Debug.Log("is idle");
+
+            animator.SetFloat("idleX", rb.rotation);
+            animator.SetFloat("idleY", rb.rotation);
+
+            //Aqui va la animacion de idle que no supe como poner ;c
+
+        }
+
         Move();
         Dash();
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -35,9 +62,31 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
-        input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
-        Vector3 velocity = input.normalized * Speed;
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+
+        
+        isMoving = horizontal != 0 || vertical != 0;
+        
+
+        rb.velocity = new Vector3(horizontal, vertical) * speed * Time.deltaTime;
+
+
+        Vector3 velocity = input.normalized * speed;
         transform.position += velocity * Time.deltaTime;
+
+        animator.SetFloat("moveX", rb.velocity.x);
+        animator.SetFloat("moveY", rb.velocity.y);
+
+
+
+
+
+
+        //Lau cambió esto por si algo xd
+
+
+
     }
 
     public void Dash()
@@ -45,13 +94,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isDashing == false)
 
         {
-            Speed += dashSpeed;
+            speed += dashSpeed;
             isDashing = true;
             dashDurationStart = dashDuration;
         }
         if (dashDurationStart <= 0 && isDashing == true)
         {
-            Speed -= dashSpeed;
+            speed -= dashSpeed;
             isDashing = false;
         }
         else
