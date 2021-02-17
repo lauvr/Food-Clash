@@ -17,24 +17,43 @@ public class PlayerMovement : MonoBehaviour
     public float dashDuration;
     private float dashDurationStart;
 
-    //private bool isMoving;
+    private float attackTime = 0.5f;
+    private float attackCounter = 0.5f;
+    private bool isAttacking;
 
-    // Start is called before the first frame update
+
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
-
         Move();
         Dash();
 
-        
+        if (isAttacking)
+        {
+            rb.velocity = Vector3.zero;  //se supone que esto deberia hacer que no pueda moverse mientras ataca pero no funciona xd
+
+            attackCounter -= Time.deltaTime;
+            if (attackCounter <= 0)
+            {
+                animator.SetBool("isAttacking", false);
+                isAttacking = false;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Attack();
+        }
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -57,13 +76,11 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("moveX", horizontal);
         animator.SetFloat("moveY", vertical);
 
-
-
-
-
-
-        //Lau cambió esto por si algo xd
-
+        if (horizontal == 1 || horizontal == -1 || vertical == 1 || vertical == -1)
+        {
+            animator.SetFloat("lastMoveX", horizontal);
+            animator.SetFloat("lastMoveY", vertical);
+        }
 
 
     }
@@ -88,4 +105,13 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+
+    void Attack()
+    {
+        attackCounter = attackTime;
+        animator.SetBool("isAttacking", true);
+        isAttacking = true;
+
+    }
+
 }
