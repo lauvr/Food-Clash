@@ -39,8 +39,8 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isMoving", false);
             Debug.Log("is idle");
 
-            animator.SetFloat("idleX", rb.rotation);
-            animator.SetFloat("idleY", rb.rotation);
+            //animator.SetFloat("idleX", rb.rotation);
+            //animator.SetFloat("idleY", rb.rotation);
 
             //Aqui va la animacion de idle que no supe como poner ;c
 
@@ -67,16 +67,14 @@ public class PlayerMovement : MonoBehaviour
 
         
         isMoving = horizontal != 0 || vertical != 0;
-        
-
-        rb.velocity = new Vector3(horizontal, vertical) * speed * Time.deltaTime;
 
 
+        input = new Vector3(horizontal, vertical, 0);
         Vector3 velocity = input.normalized * speed;
         transform.position += velocity * Time.deltaTime;
 
-        animator.SetFloat("moveX", rb.velocity.x);
-        animator.SetFloat("moveY", rb.velocity.y);
+        animator.SetFloat("moveX", horizontal);
+        animator.SetFloat("moveY", vertical);
 
 
 
