@@ -10,6 +10,8 @@ public class Projectile : MonoBehaviour
     private float lifetime;
     private Transform player;
     private Vector2 target;
+   // [SerializeField]
+    //private GameObject destroyeffect;
 
 
     // Start is called before the first frame update
@@ -40,6 +42,7 @@ public class Projectile : MonoBehaviour
     } 
     void DestroyProjectile()
     {
+        //Instantiate(destroyeffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }
