@@ -23,7 +23,7 @@ public class Projectile : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
@@ -33,10 +33,11 @@ public class Projectile : MonoBehaviour
             }
         
     }
-    void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("Trigger");
             DestroyProjectile();
         }
     } 
