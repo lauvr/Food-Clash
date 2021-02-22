@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, IShopCustomer
 {
     [SerializeField]
     private Text greend;
@@ -19,11 +19,12 @@ public class Inventory : MonoBehaviour
 
     void Start()
     {
-        gdrop = 0;
-        rdrop = 0;
-        bdrop = 0;
+        gdrop = 5;
+        rdrop = 5;
+        bdrop = 5;
         gpotion = 0;
         rpotion = 0;
+        bpotion = 0;
     }
     void Update()
     {
@@ -44,6 +45,38 @@ public class Inventory : MonoBehaviour
         else if(tag == "BDrop")
         {
             bdrop = bdrop + value;
+        }
+    }
+
+    public void BoughtItem(Items.ItemType itemType)
+    {
+        Debug.Log("Bought Item: " + itemType);
+       
+    }
+
+    public bool TrySpendAmount(int dropAmount)
+    {
+        if (rdrop >= dropAmount)
+        {
+            rpotion += 1;
+            rdrop -= 5;
+            return true;
+        }
+        if (bdrop >= dropAmount)
+        {
+            bpotion += 1;
+            bdrop -= 5;
+            return true;
+        }
+        if (gdrop >= dropAmount)
+        {
+            gpotion += 1;
+            gdrop -= 5;
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }

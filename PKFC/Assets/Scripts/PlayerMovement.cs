@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public Animator animator;
+    private Inventory inv;
 
     [SerializeField]
     private float speed;
@@ -48,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
                 isAttacking = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             Attack();
         }
@@ -113,5 +114,4 @@ public class PlayerMovement : MonoBehaviour
         isAttacking = true;
 
     }
-
 }
