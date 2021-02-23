@@ -8,6 +8,7 @@ public class SpawnObject : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(oceanTile, transform.position, Quaternion.identity);
+        GameObject instance = (GameObject)Instantiate(oceanTile, transform.position, Quaternion.identity);
+        instance.transform.parent = transform;
     }
 }
