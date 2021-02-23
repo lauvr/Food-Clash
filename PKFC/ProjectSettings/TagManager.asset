@@ -10,6 +10,8 @@ TagManager:
   - GDrop
   - BDrop
   - RDrop
+  - Room
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
