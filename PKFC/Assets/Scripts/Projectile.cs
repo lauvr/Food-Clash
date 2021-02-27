@@ -10,19 +10,26 @@ public class Projectile : MonoBehaviour
     private float lifetime;
     private Transform player;
     private Vector2 target;
-   // [SerializeField]
-    //private GameObject destroyeffect;
+    [SerializeField]
+    private int damage;
+    private int damagevariation;
+    private HealthSystem healthsystem;
+    [SerializeField]
+    private GameObject destroyeffect;
 
 
-    // Start is called before the first frame update
+    
     void Start()
     {
+        damagevariation= Random.Range(0, 3);
+        damage = damage + damagevariation;
+        healthsystem = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = new Vector2(player.position.x, player.position.x);
         Invoke("DestroyProjectile", lifetime);
     }
 
-    // Update is called once per frame
+    
     void FixedUpdate()
     {
         
@@ -37,13 +44,13 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Trigger");
+            healthsystem.TakeDamage(damage);
             DestroyProjectile();
         }
     } 
     void DestroyProjectile()
     {
-        //Instantiate(destroyeffect, transform.position, Quaternion.identity);
+        Instantiate(destroyeffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

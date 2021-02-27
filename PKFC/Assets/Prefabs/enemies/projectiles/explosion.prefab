@@ -71,7 +71,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 0, g: 0.14901961, b: 0.9607844, a: 1}
   m_FlipX: 0
@@ -97,7 +97,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   lifetime: 0.2
-  destroyeffect: {fileID: 0}
+  damage: 10
+  destroyeffect: {fileID: 7951446342096719897, guid: 9108dbf037fec264abc49d39b4d8825d,
+    type: 3}
 --- !u!58 &7273448145833879814
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -10,8 +10,8 @@ public class Pickresource : MonoBehaviour
     private int value;
     [SerializeField]
     private float lifetime;
-    // [SerializeField]
-    //private GameObject destroyeffect;
+    [SerializeField]
+    private GameObject destroyeffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,7 @@ public class Pickresource : MonoBehaviour
     }
     void DestroyDrop()
     {
-        //Instantiate(destroyeffect, transform.position, Quaternion.identity);
+        Instantiate(destroyeffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

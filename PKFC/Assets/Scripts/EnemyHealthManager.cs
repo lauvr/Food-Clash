@@ -8,8 +8,8 @@ public class EnemyHealthManager : MonoBehaviour
     public int currentHealth;
     public int maxHealth;
     public GameObject drop;
-    // [SerializeField]
-    //private GameObject destroyeffect;
+    [SerializeField]
+    private GameObject destroyeffect;
     private bool flashActive;
     [SerializeField]
     private float flashLength = 0f;
@@ -41,7 +41,7 @@ public class EnemyHealthManager : MonoBehaviour
         flashCounter = flashLength;
         if (currentHealth <= 0)
         {
-            //Instantiate(destroyeffect, transform.position, Quaternion.identity);
+            Instantiate(destroyeffect, transform.position, Quaternion.identity);
             Instantiate(drop, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
