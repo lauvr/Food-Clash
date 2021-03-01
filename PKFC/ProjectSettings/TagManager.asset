@@ -12,6 +12,9 @@ TagManager:
   - RDrop
   - Room
   - SpawnPoint
+  - shopText
+  - enemyText
+  - instructionText
   layers:
   - Default
   - TransparentFX
