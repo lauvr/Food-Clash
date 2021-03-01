@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   openingDirection: 2
+  waitTime: 4
 --- !u!61 &7742171284125227455
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17950,6 +17951,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3639295554396366505}
   - component: {fileID: 1583991309160928355}
+  - component: {fileID: -6076152541698823494}
   m_Layer: 0
   m_Name: Room B
   m_TagString: Untagged
@@ -18446,6 +18448,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b6a65bbac7874fadbafa976e2125122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6076152541698823494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3639295554396366508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33cab0644f8d9b140866928e4241f005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemies:
+  - {fileID: 6123528291341862029, guid: d9eee4ec81114a941b8be51fe30096c5, type: 3}
+  - {fileID: 6137027031697105742, guid: 15cf260ebcf56e744bf80d009458fe48, type: 3}
+  - {fileID: 1590341275409419779, guid: e84d6b7b2419d8945837e09d32fae098, type: 3}
 --- !u!1 &3639295554401688083
 GameObject:
   m_ObjectHideFlags: 0

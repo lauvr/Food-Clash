@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
                 isAttacking = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Attack();
         }
