@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7273448145833879814}
   m_Layer: 0
   m_Name: explosion
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,7 @@ MonoBehaviour:
   damage: 10
   destroyeffect: {fileID: 7951446342096719897, guid: 9108dbf037fec264abc49d39b4d8825d,
     type: 3}
+  moreChallenge: 0
 --- !u!58 &7273448145833879814
 CircleCollider2D:
   m_ObjectHideFlags: 0
