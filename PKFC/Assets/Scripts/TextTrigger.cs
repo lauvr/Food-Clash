@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TextTrigger : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class TextTrigger : MonoBehaviour
     public GameObject shopText;
     public GameObject enemyText;
     public GameObject instructionText;
+    private PauseMenu pm;
+    private bool gameIsPaused = false;
+    public GameObject tempEnemy;
+    private bool firstTime = true;
 
     void Start()
     {
@@ -20,6 +25,19 @@ public class TextTrigger : MonoBehaviour
 
     }
 
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+        gameIsPaused = false;
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+        gameIsPaused = true;
+    }
+
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -27,34 +45,25 @@ public class TextTrigger : MonoBehaviour
             if (CompareTag("shopText"))
             {
                 shopText.gameObject.SetActive(true);
+                PauseGame();
             }
             if (CompareTag("enemyText"))
             {
                 enemyText.gameObject.SetActive(true);
+                if (firstTime == true)
+                {
+                    tempEnemy.SetActive(true);
+                    firstTime = false;
+                }
+                PauseGame();
             }
             if (CompareTag("instructionText"))
             {
                 instructionText.gameObject.SetActive(true);
-            }
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (CompareTag("shopText"))
-            {
-                shopText.gameObject.SetActive(false);
-            }
-            if (CompareTag("enemyText"))
-            {
-                enemyText.gameObject.SetActive(false);
-            }
-            if (CompareTag("instructionText"))
-            {
-                instructionText.gameObject.SetActive(false);
+                PauseGame();
             }
         }
     }
 }
+
+
