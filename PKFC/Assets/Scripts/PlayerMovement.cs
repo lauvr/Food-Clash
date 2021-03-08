@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
+            cinemachinechake.Instance.ShakeCamera(3f, .1f); // con solo esta linea de codigo ya se puede aplicar el shake de la camara, se le asigna primero la intensidad y luego la duracion
             HealthSystem.Instance.TakeDamage(10);
         }
     }
@@ -112,6 +113,6 @@ public class PlayerMovement : MonoBehaviour
         attackCounter = attackTime;
         animator.SetBool("isAttacking", true);
         isAttacking = true;
-
+        
     }
 }

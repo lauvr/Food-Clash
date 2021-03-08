@@ -1,14 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
-public class EnemyHealthManager : MonoBehaviour
+using UnityEngine.UI;
+public class BossHealth : MonoBehaviour
 {
 
     public int currentHealth;
     public int maxHealth;
-    public GameObject drop;
     [SerializeField]
     private GameObject destroyeffect;
     private bool flashActive;
@@ -16,23 +14,21 @@ public class EnemyHealthManager : MonoBehaviour
     private float flashLength = 0f;
     private float flashCounter = 0f;
     private SpriteRenderer enemySprite;
-
-
-
-
+    [SerializeField]
+    private Slider healthBar;
     void Start()
     {
         enemySprite = GetComponent<SpriteRenderer>();
     }
 
-    
+
     void Update()
     {
+        healthBar.value = currentHealth;
         if (flashActive)
         {
             Flash();
         }
-
         
     }
 
@@ -46,7 +42,6 @@ public class EnemyHealthManager : MonoBehaviour
         {
             cinemachinechake.Instance.ShakeCamera(4f, .1f);
             Instantiate(destroyeffect, transform.position, Quaternion.identity);
-            Instantiate(drop, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }
@@ -88,6 +83,4 @@ public class EnemyHealthManager : MonoBehaviour
         }
         flashCounter -= Time.deltaTime;
     }
-
-
 }

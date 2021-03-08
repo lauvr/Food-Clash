@@ -16,11 +16,13 @@ public class Projectile : MonoBehaviour
     private HealthSystem healthsystem;
     [SerializeField]
     private GameObject destroyeffect;
-
+    [SerializeField]
+    private bool moreChallenge;
 
     
     void Start()
     {
+        
         damagevariation= Random.Range(0, 3);
         damage = damage + damagevariation;
         healthsystem = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
@@ -32,12 +34,8 @@ public class Projectile : MonoBehaviour
     
     void FixedUpdate()
     {
-        
-        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-            if (transform.position.x == target.x && transform.position.y == target.y)
-            {
-                DestroyProjectile();
-            }
+
+        ProjectileMovement(moreChallenge);
         
     }
     private void OnTriggerEnter2D(Collider2D other)
@@ -52,5 +50,25 @@ public class Projectile : MonoBehaviour
     {
         Instantiate(destroyeffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
+    }
+    public void ProjectileMovement(bool challenge)
+    {
+        if (challenge == false)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
+            if (transform.position.x == target.x && transform.position.y == target.y)
+            {
+                DestroyProjectile();
+            }
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            if (transform.position.x == target.x && transform.position.y == target.y)
+            {
+                DestroyProjectile();
+            }
+        }
+
     }
 }

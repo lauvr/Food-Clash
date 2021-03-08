@@ -23,6 +23,7 @@ public class Enemy_Range_attack : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
         if (timeBtwShots <= 0)
         {
+            //cinemachinechake.Instance.ShakeCamera(3f, .1f);
             Instantiate(projectile, transform.position, Quaternion.identity);
             timeBtwShots = starTimeBtwShots;
         }
