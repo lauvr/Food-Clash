@@ -79,4 +79,22 @@ public class Inventory : MonoBehaviour, IShopCustomer
             return false;
         }
     }
+
+
+
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        gdrop = data.greenDrop;
+        bdrop = data.blueDrop;
+        rdrop = data.redDrop;
+        gpotion = data.greenPotion;
+        bpotion = data.bluePotion;
+        rpotion = data.redPotion;
+    }
 }
