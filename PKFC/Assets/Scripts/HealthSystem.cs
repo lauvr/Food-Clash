@@ -37,6 +37,7 @@ public class HealthSystem : MonoBehaviour
 	public float regenUpdateInterval = 1f;
 
 	public bool GodMode;
+	public GameObject gameOverScreen;
 
 	//==============================================================
 	// Awake
@@ -211,6 +212,7 @@ public class HealthSystem : MonoBehaviour
 	{
 		// Player is dead. Do stuff.. play anim, sound..
 		//PopupText.Instance.Popup("You have died!", 1f, 1f); // Demo stuff!
+		gameOverScreen.SetActive(true);
 		Debug.Log("Dead");
 		yield return null;
 	}
