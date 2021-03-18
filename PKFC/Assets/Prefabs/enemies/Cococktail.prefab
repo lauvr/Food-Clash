@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6123528291341862025}
   - component: {fileID: 1692697765}
   - component: {fileID: -3064741174479469045}
+  - component: {fileID: 895212645}
   m_Layer: 0
   m_Name: Cococktail
   m_TagString: Untagged
@@ -99,8 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
   speed: 1
-  maxRange: 0.9
-  minRange: 0.2
+  maxRange: 3
+  minRange: 0.54
   meleeEnemy: 1
 --- !u!114 &6123528291341862025
 MonoBehaviour:
@@ -157,3 +158,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &895212645
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6123528291341862029}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.020662904, y: -0.16523206}
+  serializedVersion: 2
+  m_Radius: 0.84887445
