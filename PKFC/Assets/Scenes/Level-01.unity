@@ -811,7 +811,7 @@ PrefabInstance:
     - target: {fileID: 121814430514976672, guid: a3fc683217f0b654db9ec8a093cf0279,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 121814430514976672, guid: a3fc683217f0b654db9ec8a093cf0279,
         type: 3}
@@ -11362,6 +11362,29 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5884131623019068271, guid: 7b6d0a046abdf4dbcb08f2411ff0d5e4,
+        type: 3}
+      propertyPath: enemies.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -5884131623019068271, guid: 7b6d0a046abdf4dbcb08f2411ff0d5e4,
+        type: 3}
+      propertyPath: enemies.Array.data[3]
+      value: 
+      objectReference: {fileID: 7878733972028595296, guid: c1a4019c5a55b4855b9c34ee54561811,
+        type: 3}
+    - target: {fileID: -5884131623019068271, guid: 7b6d0a046abdf4dbcb08f2411ff0d5e4,
+        type: 3}
+      propertyPath: enemies.Array.data[4]
+      value: 
+      objectReference: {fileID: 6667688183910804717, guid: e9a5cb945c5ed4bd999f86efe259ec4e,
+        type: 3}
+    - target: {fileID: -5884131623019068271, guid: 7b6d0a046abdf4dbcb08f2411ff0d5e4,
+        type: 3}
+      propertyPath: enemies.Array.data[5]
+      value: 
+      objectReference: {fileID: 7093068189820434759, guid: 568e1a377938f4b1188f680a31ee3114,
+        type: 3}
     - target: {fileID: 1703722965237750884, guid: 7b6d0a046abdf4dbcb08f2411ff0d5e4,
         type: 3}
       propertyPath: openingDirection
@@ -11723,7 +11746,7 @@ Transform:
   - {fileID: 1200443193}
   - {fileID: 908894951}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2067497350
 GameObject:
