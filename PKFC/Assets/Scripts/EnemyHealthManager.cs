@@ -16,6 +16,8 @@ public class EnemyHealthManager : MonoBehaviour
     private float flashLength = 0f;
     private float flashCounter = 0f;
     private SpriteRenderer enemySprite;
+    public int damage;
+    public HealthSystem pHealth;
 
 
 
@@ -23,6 +25,7 @@ public class EnemyHealthManager : MonoBehaviour
     void Start()
     {
         enemySprite = GetComponent<SpriteRenderer>();
+        damage = 10;
     }
 
     
@@ -35,6 +38,8 @@ public class EnemyHealthManager : MonoBehaviour
 
         
     }
+
+
 
     public void HurtEnemy(int damageToGive)
     {
@@ -88,6 +93,15 @@ public class EnemyHealthManager : MonoBehaviour
         }
         flashCounter -= Time.deltaTime;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            pHealth.TakeDamage(damage);
+        }
+    }
+
 
 
 }

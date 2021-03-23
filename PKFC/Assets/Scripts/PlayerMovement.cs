@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private float dashDurationStart;
 
     private float attackTime = 0.5f;
-    private float attackCounter = 0.5f;
+    public float attackCounter = 0.5f;
     private bool isAttacking;
 
 
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             cinemachinechake.Instance.ShakeCamera(3f, .1f); // con solo esta linea de codigo ya se puede aplicar el shake de la camara, se le asigna primero la intensidad y luego la duracion
-            HealthSystem.Instance.TakeDamage(10);
+            //HealthSystem.Instance.TakeDamage(10);   //Me dio retraso y el jugador estaba recibiendo daño cuando atacaba al enemigo
         }
     }
 
