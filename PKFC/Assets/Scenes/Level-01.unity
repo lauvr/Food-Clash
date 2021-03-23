@@ -740,6 +740,7 @@ GameObject:
   - component: {fileID: 255787775}
   - component: {fileID: 255787774}
   - component: {fileID: 255787773}
+  - component: {fileID: 255787776}
   m_Layer: 0
   m_Name: Teleport
   m_TagString: Untagged
@@ -801,6 +802,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &255787776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255787772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fe61b4f9214523428545e442d7b5cec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actioncamera: {fileID: 556519491}
+  storecamera: {fileID: 1343155853}
 --- !u!1001 &275363873
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1231,7 +1246,7 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 0
+    m_Style: 2
     m_Time: 2
     m_CustomCurve:
       serializedVersion: 2

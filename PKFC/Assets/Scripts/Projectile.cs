@@ -22,17 +22,16 @@ public class Projectile : MonoBehaviour
     
     void Start()
     {
-        
-        damagevariation= Random.Range(0, 3);
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        damagevariation = Random.Range(0, 3);
         damage = damage + damagevariation;
         healthsystem = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
-        target = new Vector2(player.position.x, player.position.x);
+        target = new Vector2(player.position.x, player.position.y);
         Invoke("DestroyProjectile", lifetime);
     }
 
     
-    void FixedUpdate()
+    void Update()
     {
 
         ProjectileMovement(moreChallenge);
@@ -53,6 +52,7 @@ public class Projectile : MonoBehaviour
     }
     public void ProjectileMovement(bool challenge)
     {
+        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         if (challenge == false)
         {
             transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);

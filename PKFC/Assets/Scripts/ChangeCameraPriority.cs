@@ -16,11 +16,14 @@ public class ChangeCameraPriority : MonoBehaviour
     {
         storeCamera = true;
     }
-    void OntriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("cambio" + storeCamera);
         if (other.gameObject.tag=="Player")
         {
+            
             storeCamera = !storeCamera;
+            
         }
     }
     void Update()
