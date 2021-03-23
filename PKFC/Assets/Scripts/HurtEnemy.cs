@@ -5,7 +5,7 @@ using UnityEngine;
 public class HurtEnemy : MonoBehaviour
 {
 
-    public int damageToGive = 20;
+    public int damageToGive;
 
     void Start()
     {
