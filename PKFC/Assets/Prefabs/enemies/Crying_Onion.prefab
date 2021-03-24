@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   speed: 1
   maxRange: 3
-  minRange: 0.54
+  minRange: 1
   meleeEnemy: 0
 --- !u!114 &6137027031697105730
 MonoBehaviour:
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starTimeBtwShots: 2
-  projectile: {fileID: 3792881571511257930, guid: ff0d1919a9263be40b24e5777be004a7,
+  projectile: {fileID: 6781057214018664860, guid: ff14d84f8ddc8844a9270d60cebee2cc,
     type: 3}
 --- !u!50 &1440031996
 Rigidbody2D:

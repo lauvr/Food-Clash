@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -3041068126171422990, guid: c013624f0ca424e50ae662a6b6caa197,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -168,6 +168,8 @@ MonoBehaviour:
   drop: {fileID: 0}
   destroyeffect: {fileID: 0}
   flashLength: 0
+  damage: 0
+  pHealth: {fileID: 0}
 --- !u!95 &7093068189820434812
 Animator:
   serializedVersion: 3

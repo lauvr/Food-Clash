@@ -37,9 +37,9 @@ public class Projectile : MonoBehaviour
         ProjectileMovement(moreChallenge);
         
     }
-    private void OnTriggerEnter2D(Collider2D other)
+     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject.tag=="Player")
         {
             healthsystem.TakeDamage(damage);
             DestroyProjectile();
@@ -52,7 +52,7 @@ public class Projectile : MonoBehaviour
     }
     public void ProjectileMovement(bool challenge)
     {
-        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        
         if (challenge == false)
         {
             transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
@@ -64,7 +64,7 @@ public class Projectile : MonoBehaviour
         else
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-            if (transform.position.x == target.x && transform.position.y == target.y)
+            if (transform.position.x == player.position.x && transform.position.y == player.position.y)
             {
                 DestroyProjectile();
             }
