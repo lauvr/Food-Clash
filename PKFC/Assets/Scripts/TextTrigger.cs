@@ -10,7 +10,6 @@ public class TextTrigger : MonoBehaviour
     public GameObject enemyText;
     public GameObject instructionText;
     private PauseMenu pm;
-    private bool gameIsPaused = false;
     public GameObject tempEnemy;
     private bool firstTime = true;
 
@@ -28,13 +27,11 @@ public class TextTrigger : MonoBehaviour
     public void Resume()
     {
         Time.timeScale = 1f;
-        gameIsPaused = false;
     }
 
     public void PauseGame()
     {
         Time.timeScale = 0f;
-        gameIsPaused = true;
     }
 
 

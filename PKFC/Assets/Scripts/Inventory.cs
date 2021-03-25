@@ -10,6 +10,12 @@ public class Inventory : MonoBehaviour, IShopCustomer
     private Text redd;
     [SerializeField]
     private Text blued;
+    [SerializeField]
+    private Text greenp;
+    [SerializeField]
+    private Text redp;
+    [SerializeField]
+    private Text bluep;
     public int gdrop;
     public int rdrop;
     public int bdrop;
@@ -31,6 +37,9 @@ public class Inventory : MonoBehaviour, IShopCustomer
         greend.text = gdrop.ToString();
         redd.text = rdrop.ToString();
         blued.text = bdrop.ToString();
+        greenp.text = gpotion.ToString();
+        redp.text = rpotion.ToString();
+        bluep.text = bpotion.ToString();
     }
     public void Addresources (int value, string tag)
     {

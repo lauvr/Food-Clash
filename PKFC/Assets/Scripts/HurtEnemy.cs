@@ -6,10 +6,12 @@ public class HurtEnemy : MonoBehaviour
 {
 
     public int damageToGive;
+    [SerializeField]
+    private Potions potions;
 
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -24,7 +26,18 @@ public class HurtEnemy : MonoBehaviour
         {
             EnemyHealthManager eHealthMan;
             eHealthMan = other.gameObject.GetComponent<EnemyHealthManager>();
-            eHealthMan.HurtEnemy(damageToGive);
+            Debug.Log("Hit");
+           // eHealthMan.HurtEnemy(damageToGive);
+           
+            if (potions.isRunning == true)
+            {
+                eHealthMan.HurtEnemy(damageToGive + 10);
+            }
+            else
+            {
+                eHealthMan.HurtEnemy(damageToGive);
+            }
+            
         }
     }
 

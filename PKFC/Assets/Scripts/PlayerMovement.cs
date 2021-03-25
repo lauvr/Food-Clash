@@ -1,11 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
     public Animator animator;
     private Inventory inv;
+    public Joystick joystick;
+    public Button dashButton;
+    public Button attackButton;
 
     [SerializeField]
     private float speed;
@@ -30,14 +34,11 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
-
-    
-    void Update()
+    private void FixedUpdate()
     {
-        
+
         Move();
         Dash();
-
         if (isAttacking)
         {
             rb.velocity = Vector3.zero;  //se supone que esto deberia hacer que no pueda moverse mientras ataca pero no funciona xd
@@ -54,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
             Attack();
         }
 
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -68,8 +68,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Move()
     {
+
+#if UNITY_ANDROID
+        float horizontal = joystick.Horizontal;                    
+        float vertical = joystick.Vertical;
+#else
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
+#endif
 
         input = new Vector3(horizontal, vertical, 0);
         Vector3 velocity = input.normalized * speed;
@@ -89,8 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isDashing == false)
-
+        if (Input.GetKeyDown(KeyCode.Space) && isDashing == false)         //Dash PC
         {
             speed += dashSpeed;
             isDashing = true;
@@ -108,11 +113,38 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    public void PhoneDash()
+    {
+        if (isDashing == false)  //Dash Celular
+        {
+            speed += dashSpeed;
+            isDashing = true;
+            dashDurationStart = dashDuration;
+        }
+        if (dashDurationStart <= 0 && isDashing == true)
+        {
+            speed -= dashSpeed;
+            isDashing = false;
+        }
+        else
+        {
+            dashDurationStart -= Time.deltaTime;
+        }
+    }
+
     void Attack()
     {
         attackCounter = attackTime;
         animator.SetBool("isAttacking", true);
         isAttacking = true;
         
+    }
+
+    public void PhoneAttack()
+    {
+        attackCounter = attackTime;
+        animator.SetBool("isAttacking", true);
+        isAttacking = true;
+
     }
 }
