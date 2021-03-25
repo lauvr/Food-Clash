@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8776141873940737260}
   - component: {fileID: 8849511630351869857}
   - component: {fileID: 1248031351459005975}
+  - component: {fileID: 7938992483220103216}
   m_Layer: 0
   m_Name: soup
   m_TagString: Untagged
@@ -138,3 +139,15 @@ CapsuleCollider2D:
   m_Offset: {x: 0.014714063, y: -0.00789738}
   m_Size: {x: 1.7466635, y: 0.5172293}
   m_Direction: 1
+--- !u!114 &7938992483220103216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8776141873940737261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8ae19094ed84ec19664f859cea5ff7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
