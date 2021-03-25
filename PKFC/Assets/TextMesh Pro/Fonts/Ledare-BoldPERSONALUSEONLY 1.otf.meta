@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 76c84950add71479f8fffe0198c6185b
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Ledare
+  fontNames:
+  - Ledare
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: db2651cbfcd2644609acdb6d68610944, type: 3}
+  - {fileID: 12800000, guid: 129e4b4c1efe546f59f64a300c8d8dbd, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
