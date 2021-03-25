@@ -11,12 +11,13 @@ public class Potions : MonoBehaviour
     private EnemyHealthManager enemy;
     public Collider2D player;
     private HurtEnemy enemyHp;
+    public bool isRunning;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        enemyHp = GetComponent<HurtEnemy>();
     }
 
     // Update is called once per frame
@@ -60,7 +61,7 @@ public class Potions : MonoBehaviour
         }
         
     }
-    /*
+
     public void UseGreenPotion()
     {
         if (inv.gpotion > 0)
@@ -84,10 +85,10 @@ public class Potions : MonoBehaviour
 
     IEnumerator Gpotion()
     {
+        isRunning = true;
         inv.gpotion -= 1;
-        enemyHp.damageToGive = 30;    
         yield return new WaitForSeconds(5f);
-        enemyHp.damageToGive = 20;
+        isRunning = false;
     }
-    */
+
 }
