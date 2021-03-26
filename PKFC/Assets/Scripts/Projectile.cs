@@ -18,7 +18,7 @@ public class Projectile : MonoBehaviour
     private GameObject destroyeffect;
     [SerializeField]
     private bool moreChallenge;
-
+   
     
     void Start()
     {
@@ -28,6 +28,7 @@ public class Projectile : MonoBehaviour
         healthsystem = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
         target = new Vector2(player.position.x, player.position.y);
         Invoke("DestroyProjectile", lifetime);
+        
     }
 
     
@@ -61,7 +62,7 @@ public class Projectile : MonoBehaviour
                 DestroyProjectile();
             }
         }
-        else
+        else if(challenge == true )
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
             if (transform.position.x == player.position.x && transform.position.y == player.position.y)
@@ -70,5 +71,7 @@ public class Projectile : MonoBehaviour
             }
         }
 
+
     }
+
 }
