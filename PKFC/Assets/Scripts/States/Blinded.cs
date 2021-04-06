@@ -5,12 +5,18 @@ using UnityEngine.UI;
 
 public class Blinded : MonoBehaviour
 {
-    public HurtEnemy hurtEnemy;
+    //public HurtEnemy hurtEnemy;
     public Collider2D player;
-    public GameObject burnImage;
+    public GameObject blindImage;
+    public GameObject[] hitBoxes; 
 
     [SerializeField] FlashImage flashImage = null;
     [SerializeField] Color _newColor = Color.green;
+
+    private void Awake()
+    {
+        //hurtEnemy = hurtEnemy.GetComponent<HurtEnemy>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -35,10 +41,12 @@ public class Blinded : MonoBehaviour
 
     IEnumerator Blind()
     {
-        hurtEnemy.damageToGive -= 10;
-        burnImage.SetActive(true);
+        hitBoxes[hitBoxes.Length].SetActive(false);
+        //hurtEnemy.damageToGive -= 10;
+        blindImage.SetActive(true);
         yield return new WaitForSeconds(5f);
-        hurtEnemy.damageToGive += 10;
-        burnImage.SetActive(false);
+        //hurtEnemy.damageToGive += 10;
+        hitBoxes[hitBoxes.Length].SetActive(true);
+        blindImage.SetActive(false);
     }
 }

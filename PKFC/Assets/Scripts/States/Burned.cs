@@ -20,6 +20,8 @@ public class Burned : MonoBehaviour
         {
             BurnPlayer(4);
 
+            flashImage.StartFlash(1f, .3f, _newColor);
+
             Debug.Log("Burned!");
 
         }
@@ -46,10 +48,12 @@ public class Burned : MonoBehaviour
             {
                 burnTickTimers[i]--;
             }
-            health.lasaluddeljugador -= 5;  //CHELO AYUDA POR FAVOR
+            health.hitPoint -= 5;  //CHELO AYUDA POR FAVOR NO ENTIENDO TU SCRIPT DE HEALTH D:
             burnTickTimers.RemoveAll(i => i == 0);
+            burnImage.SetActive(true);
 
             yield return new WaitForSeconds(0.75f);
 ;       }
+        burnImage.SetActive(false);
     }
 }

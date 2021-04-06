@@ -27,16 +27,16 @@ public class HurtEnemy : MonoBehaviour
             EnemyHealthManager eHealthMan;
             eHealthMan = other.gameObject.GetComponent<EnemyHealthManager>();
             Debug.Log("Hit");
-           // eHealthMan.HurtEnemy(damageToGive);
+            eHealthMan.HurtEnemy(damageToGive);
            
-            if (potions.isRunning == true)
+            /*if (potions.isRunning == true)
             {
                 eHealthMan.HurtEnemy(damageToGive + 10);
             }
             else
             {
                 eHealthMan.HurtEnemy(damageToGive);
-            }
+            }*/
             
         }
     }
