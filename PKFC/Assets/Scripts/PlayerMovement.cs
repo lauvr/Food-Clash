@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public Button attackButton;
 
     [SerializeField]
-    private float speed;
+    public float speed;
 
 
     private Vector3 input;
