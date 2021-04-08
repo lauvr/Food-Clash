@@ -8,7 +8,7 @@ public class Blinded : MonoBehaviour
     //public HurtEnemy hurtEnemy;
     public Collider2D player;
     public GameObject blindImage;
-    public GameObject[] hitBoxes; 
+    int currentDamage;
 
     [SerializeField] FlashImage flashImage = null;
     [SerializeField] Color _newColor = Color.green;
@@ -35,18 +35,18 @@ public class Blinded : MonoBehaviour
 
     public void BlindPlayer()
     {
+        StopCoroutine("Blind");
         StartCoroutine("Blind");
 
     }
 
     IEnumerator Blind()
     {
-        hitBoxes[hitBoxes.Length].SetActive(false);
-        //hurtEnemy.damageToGive -= 10;
+        currentDamage = 20;
+        HurtEnemy.damageToGive = 0;
         blindImage.SetActive(true);
         yield return new WaitForSeconds(5f);
-        //hurtEnemy.damageToGive += 10;
-        hitBoxes[hitBoxes.Length].SetActive(true);
+        HurtEnemy.damageToGive = currentDamage;
         blindImage.SetActive(false);
     }
 }

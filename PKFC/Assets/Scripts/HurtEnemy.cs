@@ -5,19 +5,20 @@ using UnityEngine;
 public class HurtEnemy : MonoBehaviour
 {
 
-    public int damageToGive;
+    public static int damageToGive = 20;
     [SerializeField]
     private Potions potions;
+    public int currentDmg;
 
     void Start()
     {
-
+        damageToGive = 20;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        currentDmg = damageToGive;
     }
 
     private void OnTriggerEnter2D(Collider2D other)

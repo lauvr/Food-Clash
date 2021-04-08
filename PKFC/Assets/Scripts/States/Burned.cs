@@ -18,9 +18,11 @@ public class Burned : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            player = other;
+            health = player.GetComponent<HealthSystem>();
             BurnPlayer(4);
 
-            flashImage.StartFlash(1f, .3f, _newColor);
+            //flashImage.StartFlash(1f, .3f, _newColor);
 
             Debug.Log("Burned!");
 
@@ -29,31 +31,22 @@ public class Burned : MonoBehaviour
 
     public void BurnPlayer(int ticks)
     {
-        if (burnTickTimers.Count <= 0)
-        {
-            burnTickTimers.Add(ticks);
+        
+            StopCoroutine(Burn());
             StartCoroutine(Burn());
-        }
-        else
-        {
-            burnTickTimers.Add(ticks);
-        }
+        
     }
 
     IEnumerator Burn()
     {
-        while (burnTickTimers.Count > 0)
+        for (int i = 0; i < 4; i++)
         {
-            for (int i = 0; i < burnTickTimers.Count; i++)
-            {
-                burnTickTimers[i]--;
-            }
-            health.hitPoint -= 5;  //CHELO AYUDA POR FAVOR NO ENTIENDO TU SCRIPT DE HEALTH D:
-            burnTickTimers.RemoveAll(i => i == 0);
-            burnImage.SetActive(true);
+            Debug.Log(i);
+            health.hitPoint -= 2.5f;
+            yield return new WaitForSeconds(.5f);
 
-            yield return new WaitForSeconds(0.75f);
-;       }
-        burnImage.SetActive(false);
+        }
+        //burnImage.SetActive(true);
+        //burnImage.SetActive(false);
     }
 }
