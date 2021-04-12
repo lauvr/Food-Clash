@@ -192,10 +192,11 @@ public class HealthSystem : MonoBehaviour
 	//==============================================================
 	IEnumerator PlayerHurts()
 	{
-		// Player gets hurt. Do stuff.. play anim, sound..
+        // Player gets hurt. Do stuff.. play anim, sound..
 
-		//PopupText.Instance.Popup("Ouch!", 1f, 1f); // Demo stuff!
-		Debug.Log("ouch");
+        //PopupText.Instance.Popup("Ouch!", 1f, 1f); // Demo stuff!
+        cinemachinechake.Instance.ShakeCamera(2f, .1f);//camera shake
+        Debug.Log("ouch");
 		if (hitPoint < 1) // Health is Zero!!
 		{
 			yield return StartCoroutine(PlayerDied()); // Hero is Dead
@@ -210,9 +211,10 @@ public class HealthSystem : MonoBehaviour
 	//==============================================================
 	IEnumerator PlayerDied()
 	{
-		// Player is dead. Do stuff.. play anim, sound..
-		//PopupText.Instance.Popup("You have died!", 1f, 1f); // Demo stuff!
-		gameOverScreen.SetActive(true);
+        // Player is dead. Do stuff.. play anim, sound..
+        //PopupText.Instance.Popup("You have died!", 1f, 1f); // Demo stuff!
+        cinemachinechake.Instance.ShakeCamera(3f, .1f);//camera shake
+        gameOverScreen.SetActive(true);
 		Debug.Log("Dead");
 		yield return null;
 	}
