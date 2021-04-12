@@ -7,10 +7,10 @@ public class Burned : MonoBehaviour
 {
     public HealthSystem health;
     public Collider2D player;
-    public GameObject burnImage;
+    //public GameObject burnImage;
 
-    [SerializeField] FlashImage flashImage = null;
-    [SerializeField] Color _newColor = Color.red;
+    //[SerializeField] FlashImage flashImage = null;               NOTA: Comenté las lineas relacionadas con las imagenes (de flash y estado) 
+    //[SerializeField] Color _newColor = Color.red;                ya que no deja poner la refencia en los prefabs. Hay que solucionar eso de otra manera :(
 
     public List<int> burnTickTimers = new List<int>();
 
@@ -42,11 +42,13 @@ public class Burned : MonoBehaviour
         for (int i = 0; i < 4; i++)
         {
             Debug.Log(i);
+            //burnImage.SetActive(true);
             health.hitPoint -= 2.5f;
             yield return new WaitForSeconds(.5f);
+            //burnImage.SetActive(false);
 
         }
-        //burnImage.SetActive(true);
-        //burnImage.SetActive(false);
+        
+        
     }
 }
