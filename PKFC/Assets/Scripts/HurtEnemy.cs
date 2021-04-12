@@ -5,19 +5,20 @@ using UnityEngine;
 public class HurtEnemy : MonoBehaviour
 {
 
-    public int damageToGive;
+    public static int damageToGive = 20;
     [SerializeField]
     private Potions potions;
+    public int currentDmg;
 
     void Start()
     {
-
+        damageToGive = 20;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        currentDmg = damageToGive;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -28,7 +29,7 @@ public class HurtEnemy : MonoBehaviour
             eHealthMan = other.gameObject.GetComponent<EnemyHealthManager>();
             Debug.Log("Hit");
             eHealthMan.HurtEnemy(damageToGive);
-           /*
+
             if (potions.isRunning == true)
             {
                 eHealthMan.HurtEnemy(damageToGive + 10);
@@ -37,7 +38,7 @@ public class HurtEnemy : MonoBehaviour
             {
                 eHealthMan.HurtEnemy(damageToGive);
             }
-            */
+            
         }
     }
 

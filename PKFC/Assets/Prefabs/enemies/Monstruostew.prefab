@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   starTimeBtwShots: 3
-  projectile: {fileID: 8776141873940737261, guid: 59e4931c3a1306b4ab4a0d03f273c95e,
+  projectile: {fileID: 4924469987770720764, guid: 59e4931c3a1306b4ab4a0d03f273c95e,
     type: 3}
 --- !u!50 &1381224299
 Rigidbody2D:

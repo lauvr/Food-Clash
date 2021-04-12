@@ -18,6 +18,8 @@ public class Projectile : MonoBehaviour
     private GameObject destroyeffect;
     [SerializeField]
     private bool moreChallenge;
+    SpriteRenderer sr;
+    Collider2D col;
    
     
     void Start()
@@ -28,6 +30,8 @@ public class Projectile : MonoBehaviour
         healthsystem = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
         target = new Vector2(player.position.x, player.position.y);
         Invoke("DestroyProjectile", lifetime);
+        sr = GetComponent<SpriteRenderer>();
+        col = GetComponent<Collider2D>();
         
     }
 
@@ -49,7 +53,11 @@ public class Projectile : MonoBehaviour
     void DestroyProjectile()
     {
         Instantiate(destroyeffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(gameObject, 5);
+        sr.enabled = false;
+        col.enabled = false;
+
+        
     }
     public void ProjectileMovement(bool challenge)
     {
