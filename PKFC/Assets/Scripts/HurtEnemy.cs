@@ -30,14 +30,14 @@ public class HurtEnemy : MonoBehaviour
             Debug.Log("Hit");
             eHealthMan.HurtEnemy(damageToGive);
            
-            /*if (potions.isRunning == true)
+            if (potions.isRunning == true)
             {
                 eHealthMan.HurtEnemy(damageToGive + 10);
             }
             else
             {
                 eHealthMan.HurtEnemy(damageToGive);
-            }*/
+            }
             
         }
     }
