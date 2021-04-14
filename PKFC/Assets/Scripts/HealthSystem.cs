@@ -38,6 +38,8 @@ public class HealthSystem : MonoBehaviour
 
 	public bool GodMode;
 	public GameObject gameOverScreen;
+	public Animator deathAnim;
+	private PlayerMovement player;
 
 	//==============================================================
 	// Awake
@@ -53,7 +55,8 @@ public class HealthSystem : MonoBehaviour
   	void Start()
 	{
 		UpdateGraphics();
-		timeleft = regenUpdateInterval; 
+		timeleft = regenUpdateInterval;
+		deathAnim = GetComponent<Animator>();
 	}
 
 	//==============================================================
@@ -212,8 +215,10 @@ public class HealthSystem : MonoBehaviour
 	{
 		// Player is dead. Do stuff.. play anim, sound..
 		//PopupText.Instance.Popup("You have died!", 1f, 1f); // Demo stuff!
-		gameOverScreen.SetActive(true);
+
 		Debug.Log("Dead");
-		yield return null;
+		deathAnim.Play("Male_Death");
+		yield return new WaitForSeconds(2f);
+		gameOverScreen.SetActive(true);
 	}
 }
