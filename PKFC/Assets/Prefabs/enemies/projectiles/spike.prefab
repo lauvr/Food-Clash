@@ -133,7 +133,7 @@ MonoBehaviour:
   speed: 2
   lifetime: 1.5
   damage: 2
-  destroyeffect: {fileID: 7951446342096719897, guid: 9108dbf037fec264abc49d39b4d8825d,
+  destroyeffect: {fileID: 1326469676039249914, guid: ad81448eeeb3c154d880cd722777e55a,
     type: 3}
   moreChallenge: 0
 --- !u!70 &3170621739844557192

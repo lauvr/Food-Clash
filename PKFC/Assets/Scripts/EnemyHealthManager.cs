@@ -24,6 +24,7 @@ public class EnemyHealthManager : MonoBehaviour
 
     void Start()
     {
+        pHealth= GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
         enemySprite = GetComponent<SpriteRenderer>();
         damage = 10;
     }

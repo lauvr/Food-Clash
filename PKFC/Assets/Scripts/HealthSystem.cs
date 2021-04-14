@@ -15,8 +15,8 @@ using UnityEngine.UI;
 public class HealthSystem : MonoBehaviour
 {
 	public static HealthSystem Instance;
-
-	public Image currentHealthBar;
+    public Animator deathAnim;
+    public Image currentHealthBar;
 	public Image currentHealthGlobe;
 	public Text healthText;
 	public float hitPoint = 100f;
@@ -216,6 +216,10 @@ public class HealthSystem : MonoBehaviour
         cinemachinechake.Instance.ShakeCamera(3f, .1f);//camera shake
         gameOverScreen.SetActive(true);
 		Debug.Log("Dead");
-		yield return null;
+        deathAnim.Play("Male_Death");
+        yield return new WaitForSeconds(2f);
+        gameOverScreen.SetActive(true);
+
+        yield return null;
 	}
 }

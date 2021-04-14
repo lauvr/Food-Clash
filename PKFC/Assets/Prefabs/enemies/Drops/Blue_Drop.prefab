@@ -114,5 +114,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: BDrop
   lifetime: 6
-  destroyeffect: {fileID: 7951446342096719897, guid: 9108dbf037fec264abc49d39b4d8825d,
+  destroyeffect: {fileID: 5123312502741526064, guid: efb8f2857e6e72a48895f380932a9327,
     type: 3}

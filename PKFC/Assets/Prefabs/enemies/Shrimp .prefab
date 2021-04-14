@@ -177,6 +177,7 @@ MonoBehaviour:
   maxRange: 3
   minRange: 0.54
   meleeEnemy: 1
+  boss: 0
 --- !u!114 &7878733972028595288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +193,8 @@ MonoBehaviour:
   currentHealth: 100
   maxHealth: 100
   drop: {fileID: 0}
-  destroyeffect: {fileID: 0}
+  destroyeffect: {fileID: 1505106809632330984, guid: 664058e01e286bb48b076e275a26a982,
+    type: 3}
   flashLength: 0
   damage: 0
   pHealth: {fileID: 0}

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: 2157158561566971872, guid: a1cee8d2cb026dd4e85409d1340f5871,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -120,7 +120,7 @@ MonoBehaviour:
   speed: 2
   lifetime: 1.5
   damage: 4
-  destroyeffect: {fileID: 7951446342096719897, guid: 9108dbf037fec264abc49d39b4d8825d,
+  destroyeffect: {fileID: 8603698982163002472, guid: 5e5780b0ae2e6874da65591d7b56f32d,
     type: 3}
   moreChallenge: 1
 --- !u!58 &104153757342251637
@@ -151,8 +151,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ea7679af1634b32ab0524f47dea552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hurtEnemy: {fileID: 0}
   player: {fileID: 0}
-  burnImage: {fileID: 0}
-  flashImage: {fileID: 0}
-  _newColor: {r: 0.3764706, g: 0, b: 1, a: 1}

@@ -119,7 +119,7 @@ MonoBehaviour:
   speed: 2
   lifetime: 1.5
   damage: 2
-  destroyeffect: {fileID: 7951446342096719897, guid: 9108dbf037fec264abc49d39b4d8825d,
+  destroyeffect: {fileID: 4355672855595548664, guid: 410145219f73b81429f48bfd9b56fecb,
     type: 3}
   moreChallenge: 0
 --- !u!58 &6781057214018664856
@@ -150,8 +150,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ea7679af1634b32ab0524f47dea552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hurtEnemy: {fileID: 0}
   player: {fileID: 0}
-  burnImage: {fileID: 0}
-  flashImage: {fileID: 0}
-  _newColor: {r: 0.37673187, g: 0, b: 1, a: 1}

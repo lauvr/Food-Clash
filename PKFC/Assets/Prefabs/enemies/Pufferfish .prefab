@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6667688183910804722}
   - component: {fileID: 6667688183910804724}
   - component: {fileID: -5240893399286182225}
+  - component: {fileID: 3934096851275127118}
   m_Layer: 8
   m_Name: 'Pufferfish '
   m_TagString: Enemy
@@ -140,7 +141,8 @@ MonoBehaviour:
   currentHealth: 100
   maxHealth: 100
   drop: {fileID: 0}
-  destroyeffect: {fileID: 0}
+  destroyeffect: {fileID: 8206260072408149695, guid: f490bb6ed2cf081459b37c1d53169a70,
+    type: 3}
   flashLength: 0
   damage: 0
   pHealth: {fileID: 0}
@@ -161,6 +163,7 @@ MonoBehaviour:
   maxRange: 3
   minRange: 0.54
   meleeEnemy: 1
+  boss: 0
 --- !u!95 &6667688183910804724
 Animator:
   serializedVersion: 3
@@ -194,4 +197,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mov: {fileID: 0}
   player: {fileID: 0}
-  flashImage: {fileID: 0}
+--- !u!58 &3934096851275127118
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667688183910804717}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.29136658, y: -0.078308105}
+  serializedVersion: 2
+  m_Radius: 0.9693451

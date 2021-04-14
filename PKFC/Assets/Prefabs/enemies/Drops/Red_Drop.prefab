@@ -114,5 +114,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tag: RDrop
   lifetime: 6
-  destroyeffect: {fileID: 7951446342096719897, guid: 9108dbf037fec264abc49d39b4d8825d,
+  destroyeffect: {fileID: 1530641707647139160, guid: ebb54c51d9545034f8cc2158b0f77976,
     type: 3}

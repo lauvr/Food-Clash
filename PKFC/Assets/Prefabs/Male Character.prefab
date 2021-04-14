@@ -440,7 +440,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &7075813180025788665
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -499,9 +499,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  joystick: {fileID: 0}
+  dashButton: {fileID: 0}
+  attackButton: {fileID: 0}
   speed: 2.5
   dashSpeed: 25
   dashDuration: 0.1
+  attackCounter: 0.5
 --- !u!114 &7075813180025788664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,6 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f03d4266e23dc4334a7d117778c7809e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathAnim: {fileID: 0}
   currentHealthBar: {fileID: 0}
   currentHealthGlobe: {fileID: 0}
   healthText: {fileID: 0}
@@ -523,6 +528,7 @@ MonoBehaviour:
   regen: 0.01
   regenUpdateInterval: 1
   GodMode: 0
+  gameOverScreen: {fileID: 0}
 --- !u!114 &7075813180025788667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -538,6 +544,9 @@ MonoBehaviour:
   greend: {fileID: 0}
   redd: {fileID: 0}
   blued: {fileID: 0}
+  greenp: {fileID: 0}
+  redp: {fileID: 0}
+  bluep: {fileID: 0}
   gdrop: 5
   rdrop: 5
   bdrop: 5
@@ -614,7 +623,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0477db0b618540ca84044f9b831fe31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToGive: 20
+  potions: {fileID: 0}
+  currentDmg: 0
 --- !u!1 &7075813180204359826
 GameObject:
   m_ObjectHideFlags: 0
@@ -685,7 +695,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0477db0b618540ca84044f9b831fe31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToGive: 20
+  potions: {fileID: 0}
+  currentDmg: 0
 --- !u!1 &7075813180225734971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1768,7 +1779,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0477db0b618540ca84044f9b831fe31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToGive: 20
+  potions: {fileID: 0}
+  currentDmg: 0
 --- !u!1 &7075813181403326959
 GameObject:
   m_ObjectHideFlags: 0
@@ -2040,7 +2052,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0477db0b618540ca84044f9b831fe31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToGive: 20
+  potions: {fileID: 0}
+  currentDmg: 0
 --- !u!1 &7075813181550613425
 GameObject:
   m_ObjectHideFlags: 0

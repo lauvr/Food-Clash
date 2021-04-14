@@ -120,7 +120,7 @@ MonoBehaviour:
   speed: 0
   lifetime: 10
   damage: 3
-  destroyeffect: {fileID: 7951446342096719897, guid: 9108dbf037fec264abc49d39b4d8825d,
+  destroyeffect: {fileID: 6442821697284939687, guid: 1c4972989ea8df74d8e916c608471c25,
     type: 3}
   moreChallenge: 0
 --- !u!70 &6203350640974111038
@@ -153,7 +153,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   player: {fileID: 0}
-  burnImage: {fileID: 0}
-  flashImage: {fileID: 0}
-  _newColor: {r: 1, g: 0, b: 0, a: 1}
   burnTickTimers: 
