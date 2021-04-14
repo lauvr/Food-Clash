@@ -140,10 +140,11 @@ MonoBehaviour:
   currentHealth: 100
   maxHealth: 100
   drop: {fileID: 0}
-  destroyeffect: {fileID: 0}
+  destroyeffect: {fileID: 7951446342096719897, guid: 9108dbf037fec264abc49d39b4d8825d,
+    type: 3}
   flashLength: 0
   damage: 0
-  pHealth: {fileID: 0}
+  pHealth: {fileID: 7075813180025788664, guid: a1a99de9bfa7b5349a30ac678925e460, type: 3}
 --- !u!114 &6667688183910804722
 MonoBehaviour:
   m_ObjectHideFlags: 0

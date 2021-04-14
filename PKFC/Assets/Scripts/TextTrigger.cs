@@ -37,12 +37,13 @@ public class TextTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && firstTime == true)
         {
             if (CompareTag("shopText"))
             {
                 shopText.gameObject.SetActive(true);
                 PauseGame();
+                firstTime = false;
             }
             if (CompareTag("enemyText"))
             {
@@ -58,6 +59,7 @@ public class TextTrigger : MonoBehaviour
             {
                 instructionText.gameObject.SetActive(true);
                 PauseGame();
+                firstTime = false;
             }
         }
     }
