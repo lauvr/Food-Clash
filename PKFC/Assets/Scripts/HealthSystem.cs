@@ -211,9 +211,9 @@ public class HealthSystem : MonoBehaviour
 	//==============================================================
 	IEnumerator PlayerDied()
 	{
-        // Player is dead. Do stuff.. play anim, sound..
-        //PopupText.Instance.Popup("You have died!", 1f, 1f); // Demo stuff!
-        cinemachinechake.Instance.ShakeCamera(3f, .1f);//camera shake
+		SoundManager.PlaySound("Player Death");
+		//PopupText.Instance.Popup("You have died!", 1f, 1f); // Demo stuff!
+		cinemachinechake.Instance.ShakeCamera(3f, .1f);//camera shake
         gameOverScreen.SetActive(true);
 		Debug.Log("Dead");
         deathAnim.Play("Male_Death");

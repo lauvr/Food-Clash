@@ -97,6 +97,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && isDashing == false)         //Dash PC
         {
+            SoundManager.PlaySound("Player Dash");
             speed += dashSpeed;
             isDashing = true;
             dashDurationStart = dashDuration;
@@ -117,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isDashing == false)  //Dash Celular
         {
+            SoundManager.PlaySound("Player Dash");
             speed += dashSpeed;
             isDashing = true;
             dashDurationStart = dashDuration;
@@ -134,6 +136,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Attack()
     {
+        SoundManager.PlaySound("Player Attack");
+
         attackCounter = attackTime;
         animator.SetBool("isAttacking", true);
         isAttacking = true;
