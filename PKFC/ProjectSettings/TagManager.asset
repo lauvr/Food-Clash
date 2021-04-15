@@ -15,6 +15,7 @@ TagManager:
   - shopText
   - enemyText
   - instructionText
+  - Weapon
   layers:
   - Default
   - TransparentFX

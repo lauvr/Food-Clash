@@ -80,4 +80,14 @@ public class EnemyController : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, a*speed * Time.deltaTime);
 
     }
+
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Weapon")
+        {
+            Vector2 difference = transform.position - other.transform.position;
+            transform.position = new Vector2(transform.position.x + difference.x, transform.position.y + difference.y);
+        }
+    }
 }
