@@ -46,6 +46,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.tag=="Player")
         {
+            SoundManager.PlaySound("Impact");
             healthsystem.TakeDamage(damage);
             DestroyProjectile();
         }

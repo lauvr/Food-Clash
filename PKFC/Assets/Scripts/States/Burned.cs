@@ -2,27 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Burned : MonoBehaviour
 {
     public HealthSystem health;
     public Collider2D player;
-    //public GameObject burnImage;
+    public StatusListener feedback;
 
-    //[SerializeField] FlashImage flashImage = null;               NOTA: Comenté las lineas relacionadas con las imagenes (de flash y estado) 
-    //[SerializeField] Color _newColor = Color.red;                ya que no deja poner la refencia en los prefabs. Hay que solucionar eso de otra manera :(
+    
 
     public List<int> burnTickTimers = new List<int>();
+
+
+    UnityEvent onBurned;
+
+    private void Start()
+    {
+        feedback = GameObject.FindGameObjectWithTag("StatusEffect").GetComponent<StatusListener>();
+
+        if (onBurned == null)
+            onBurned = new UnityEvent();
+
+        onBurned.AddListener(ActivateStatusEffect);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
             player = other;
-            health = player.GetComponent<HealthSystem>();
+            if (health == null)
+            {
+                health = player.GetComponent<HealthSystem>();
+            }
             BurnPlayer(4);
-
-            //flashImage.StartFlash(1f, .3f, _newColor);
 
             Debug.Log("Burned!");
 
@@ -34,21 +48,29 @@ public class Burned : MonoBehaviour
         
             StopCoroutine(Burn());
             StartCoroutine(Burn());
+       
+
+    }
+
+    public void ActivateStatusEffect()
+    {
         
+        feedback.BurnFeedback();
+
     }
 
     IEnumerator Burn()
     {
+        if (onBurned != null)
+        {
+            onBurned.Invoke();
+        }
         for (int i = 0; i < 4; i++)
         {
-            Debug.Log(i);
-            //burnImage.SetActive(true);
             health.hitPoint -= 2.5f;
             yield return new WaitForSeconds(.5f);
-            //burnImage.SetActive(false);
 
         }
-        
         
     }
 }

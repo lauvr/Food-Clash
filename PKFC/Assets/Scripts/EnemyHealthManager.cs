@@ -52,6 +52,7 @@ public class EnemyHealthManager : MonoBehaviour
         {
             cinemachinechake.Instance.ShakeCamera(4f, .1f);
             Instantiate(destroyeffect, transform.position, Quaternion.identity);
+            SoundManager.PlaySound("EnemyDeath");
             Instantiate(drop, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
