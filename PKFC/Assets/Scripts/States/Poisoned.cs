@@ -2,29 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Poisoned : MonoBehaviour
 {
    
     public PlayerMovement mov;
     public Collider2D player;
-    //public GameObject poisonImage;
+    public StatusListener feedback;
 
-    //[SerializeField] FlashImage flashImage = null;              NOTA: Comenté las lineas relacionadas con las imagenes (de flash y estado) 
-    //[SerializeField] Color _newColor = Color.green;             ya que no deja poner la refencia en los prefabs. Hay que solucionar eso de otra manera :(
+    UnityEvent onPoisoned;
+
+    private void Start()
+    {
+        feedback = GameObject.FindGameObjectWithTag("StatusEffect").GetComponent<StatusListener>();
+
+        if (onPoisoned == null)
+            onPoisoned = new UnityEvent();
+
+        onPoisoned.AddListener(ActivateStatusEffect);
+    }
 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
+            Debug.Log("Poisoned!");
             player = other;
             mov = player.GetComponent<PlayerMovement>();
             PoisonPlayer();
 
-            //flashImage.StartFlash(1f, .3f, _newColor);
-
-            Debug.Log("Poisoned!");
+            
 
         }
     }
@@ -36,12 +45,21 @@ public class Poisoned : MonoBehaviour
         
     }
 
+    public void ActivateStatusEffect()
+    {
+
+        feedback.PoisonFeedback();
+
+    }
+
     IEnumerator Poison()
     {
+        if (onPoisoned != null)
+        {
+            onPoisoned.Invoke();
+        }
         mov.speed -= 0.7f;
-        //poisonImage.SetActive(true);
         yield return new WaitForSeconds(5f);
         mov.speed += 0.7f;
-        //poisonImage.SetActive(false);
     }
 }

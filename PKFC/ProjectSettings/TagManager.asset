@@ -16,6 +16,8 @@ TagManager:
   - enemyText
   - instructionText
   - Weapon
+  - Status
+  - StatusEffect
   layers:
   - Default
   - TransparentFX
