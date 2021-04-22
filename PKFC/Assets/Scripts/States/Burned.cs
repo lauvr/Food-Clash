@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Burned : MonoBehaviour
 {
@@ -13,6 +14,17 @@ public class Burned : MonoBehaviour
     //[SerializeField] Color _newColor = Color.red;                ya que no deja poner la refencia en los prefabs. Hay que solucionar eso de otra manera :(
 
     public List<int> burnTickTimers = new List<int>();
+
+
+    UnityEvent onBurned;
+
+    private void Start()
+    {
+        if (onBurned == null)
+            onBurned = new UnityEvent();
+
+       // onBurned.AddListener(GetComponent<StatusListener>().BurnFeedback);
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -34,13 +46,18 @@ public class Burned : MonoBehaviour
         
             StopCoroutine(Burn());
             StartCoroutine(Burn());
-        
+        if (onBurned != null)
+        {
+            onBurned.Invoke();
+        }
+
     }
 
     IEnumerator Burn()
     {
         for (int i = 0; i < 4; i++)
         {
+            
             Debug.Log(i);
             //burnImage.SetActive(true);
             health.hitPoint -= 2.5f;

@@ -26,8 +26,8 @@ public class Enemy_Range_attack : MonoBehaviour
             //cinemachinechake.Instance.ShakeCamera(3f, .1f);
 
             Instantiate(projectile, transform.position, Quaternion.identity);
-            
-            
+            SoundManager.PlaySound("Shoot");
+
             timeBtwShots = starTimeBtwShots;
         }
         else
