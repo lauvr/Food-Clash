@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 7878733972028595288}
   m_Layer: 0
   m_Name: 'Shrimp '
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +119,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.44392395, y: -0.26358032}
@@ -192,9 +192,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 100
   maxHealth: 100
-  drop: {fileID: 3435569434299321620, guid: b519a4abfe5fe8d4497b8c19a6f94954, type: 3}
+  drop: {fileID: 7814596860993004809, guid: ba1eabb84100a31469d7437f23887cf5, type: 3}
   destroyeffect: {fileID: 7951446342096719897, guid: 9108dbf037fec264abc49d39b4d8825d,
     type: 3}
   flashLength: 0.5
-  damage: 0
+  damage: 10
   pHealth: {fileID: 7075813180025788664, guid: a1a99de9bfa7b5349a30ac678925e460, type: 3}
