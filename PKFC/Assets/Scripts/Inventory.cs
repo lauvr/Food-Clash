@@ -22,9 +22,17 @@ public class Inventory : MonoBehaviour, IShopCustomer
     public int gpotion;
     public int rpotion;
     public int bpotion;
+    private ChestDrops chest;
+    private bool firstTime = true;
+    private int randR;
+    private int randB;
+    private int randG;
 
     void Start()
     {
+        randR = Random.Range(1, 5);
+        randB= Random.Range(1, 5);
+        randG = Random.Range(1, 5);
         gdrop = 5;
         rdrop = 5;
         bdrop = 5;
@@ -105,5 +113,25 @@ public class Inventory : MonoBehaviour, IShopCustomer
         gpotion = data.greenPotion;
         bpotion = data.bluePotion;
         rpotion = data.redPotion;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Chest"))
+        {
+            if (firstTime == true)
+            {
+                Debug.Log("Chest");
+                rdrop = rdrop + randR;
+                bdrop = bdrop + randB;
+                gdrop = gdrop + randG;
+                firstTime = false;
+            }
+            else
+            {
+                Debug.Log("Chest already open");
+            }
+
+        }
     }
 }
