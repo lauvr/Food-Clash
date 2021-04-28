@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,28 +15,25 @@ public class BossHealth : MonoBehaviour
     private float flashLength = 0f;
     private float flashCounter = 0f;
     private SpriteRenderer enemySprite;
-    [SerializeField]
-    private Slider healthBar;
+
+    public event EventHandler<OnDamagetakenEventArgs> OnDamageTaken;
+    public class OnDamagetakenEventArgs : EventArgs
+    {
+        public int health;
+    }
     void Start()
     {
         enemySprite = GetComponent<SpriteRenderer>();
     }
 
 
-    void Update()
-    {
-        healthBar.value = currentHealth;
-        if (flashActive)
-        {
-            Flash();
-        }
-        
-    }
+
 
     public void HurtEnemy(int damageToGive)
     {
         cinemachinechake.Instance.ShakeCamera(3f, .1f);
         currentHealth -= damageToGive;
+        OnDamageTaken?.Invoke(this, new OnDamagetakenEventArgs { health=currentHealth});
         flashActive = true;
         flashCounter = flashLength;
         if (currentHealth <= 0)
