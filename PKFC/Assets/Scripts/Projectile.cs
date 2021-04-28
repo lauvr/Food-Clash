@@ -54,7 +54,7 @@ public class Projectile : MonoBehaviour
     void DestroyProjectile()
     {
         Instantiate(destroyeffect, transform.position, Quaternion.identity);
-        Destroy(gameObject, 5);
+        Destroy(gameObject, .05f);
         sr.enabled = false;
         col.enabled = false;
 

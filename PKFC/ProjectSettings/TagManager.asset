@@ -18,6 +18,8 @@ TagManager:
   - Weapon
   - Status
   - StatusEffect
+  - Chest
+  - Boss
   layers:
   - Default
   - TransparentFX

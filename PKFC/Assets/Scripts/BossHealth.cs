@@ -31,6 +31,7 @@ public class BossHealth : MonoBehaviour
 
     public void HurtEnemy(int damageToGive)
     {
+        Debug.Log("Damage boss");
         cinemachinechake.Instance.ShakeCamera(3f, .1f);
         currentHealth -= damageToGive;
         OnDamageTaken?.Invoke(this, new OnDamagetakenEventArgs { health=currentHealth});

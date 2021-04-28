@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 347894513862051549}
   m_Layer: 0
   m_Name: squid1
-  m_TagString: Enemy
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -222,7 +222,6 @@ MonoBehaviour:
   destroyeffect: {fileID: 7951446342096719897, guid: 9108dbf037fec264abc49d39b4d8825d,
     type: 3}
   flashLength: 0.5
-  healthBar: {fileID: 0}
 --- !u!50 &347894513862051551
 Rigidbody2D:
   serializedVersion: 4
@@ -308,7 +307,7 @@ GameObject:
   - component: {fileID: 347894513882303862}
   m_Layer: 0
   m_Name: Boss_Squid
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -494,7 +493,7 @@ GameObject:
   - component: {fileID: 347894514906040911}
   m_Layer: 0
   m_Name: Rt1
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

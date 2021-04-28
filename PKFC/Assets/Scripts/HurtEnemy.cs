@@ -40,6 +40,13 @@ public class HurtEnemy : MonoBehaviour
             }
             */
         }
+        else if(other.tag == "Boss")
+        {
+            BossHealth eHealthMan;
+            eHealthMan = other.gameObject.GetComponent<BossHealth>();
+            Debug.Log("Hit boss");
+            eHealthMan.HurtEnemy(damageToGive);
+        }
     }
 
 }
