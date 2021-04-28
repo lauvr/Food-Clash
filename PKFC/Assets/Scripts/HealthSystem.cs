@@ -7,7 +7,6 @@
 // Attach to the Hero.
 //==============================================================
 
-using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,16 +20,14 @@ public class HealthSystem : MonoBehaviour
 	public Text healthText;
 	public float hitPoint = 100f;
 	public float maxHitPoint = 100f;
-	/*
-	public Image currentManaBar;
-	public Image currentManaGlobe;
-	public Text manaText;
-	public float manaPoint = 100f;
-	public float maxManaPoint = 100f;
-	*/
-	//==============================================================
-	// Regenerate Health & Mana
-	//==============================================================
+
+	private bool flashActive;
+	[SerializeField]
+	private float flashLength = 0f;
+	private float flashCounter = 0f;
+	private SpriteRenderer playerSprite;
+
+	
 	public bool Regenerate = true;
 	public float regen = 0.1f;
 	private float timeleft = 0.0f;	// Left time for current interval
@@ -39,35 +36,32 @@ public class HealthSystem : MonoBehaviour
 	public bool GodMode;
 	public GameObject gameOverScreen;
 
-	//==============================================================
-	// Awake
-	//==============================================================
 	void Awake()
 	{
 		Instance = this;
 	}
 	
-	//==============================================================
-	// Awake
-	//==============================================================
+	
   	void Start()
 	{
-		UpdateGraphics();
-		timeleft = regenUpdateInterval; 
+        UpdateGraphics();
+        timeleft = regenUpdateInterval;
+		playerSprite = GetComponent<SpriteRenderer>();
 	}
 
-	//==============================================================
-	// Update
-	//==============================================================
+	
 	void Update ()
 	{
 		if (Regenerate)
 			Regen();
+
+		if (flashActive)
+		{
+			Flash();
+		}
 	}
 
-	//==============================================================
-	// Regenerate Health & Mana
-	//==============================================================
+	
 	private void Regen()
 	{
 		timeleft -= Time.deltaTime;
@@ -92,9 +86,7 @@ public class HealthSystem : MonoBehaviour
 		}
 	}
 
-	//==============================================================
-	// Health Logic
-	//==============================================================
+	
 	private void UpdateHealthBar()
 	{
 		float ratio = hitPoint / maxHitPoint;
@@ -118,7 +110,7 @@ public class HealthSystem : MonoBehaviour
 		UpdateGraphics();
 
 		StartCoroutine(PlayerHurts());
-	}
+    }
 
 	public void HealDamage(float Heal)
 	{
@@ -134,51 +126,7 @@ public class HealthSystem : MonoBehaviour
 
 		UpdateGraphics();
 	}
-	/*
-	//==============================================================
-	// Mana Logic
-	//==============================================================
-	private void UpdateManaBar()
-	{
-		float ratio = manaPoint / maxManaPoint;
-		currentManaBar.rectTransform.localPosition = new Vector3(currentManaBar.rectTransform.rect.width * ratio - currentManaBar.rectTransform.rect.width, 0, 0);
-		manaText.text = manaPoint.ToString ("0") + "/" + maxManaPoint.ToString ("0");
-	}
-
-	private void UpdateManaGlobe()
-	{
-		float ratio = manaPoint / maxManaPoint;
-		currentManaGlobe.rectTransform.localPosition = new Vector3(0, currentManaGlobe.rectTransform.rect.height * ratio - currentManaGlobe.rectTransform.rect.height, 0);
-		manaText.text = manaPoint.ToString("0") + "/" + maxManaPoint.ToString("0");
-	}
-
-	public void UseMana(float Mana)
-	{
-		manaPoint -= Mana;
-		if (manaPoint < 1) // Mana is Zero!!
-			manaPoint = 0;
-
-		UpdateGraphics();
-	}
-
-	public void RestoreMana(float Mana)
-	{
-		manaPoint += Mana;
-		if (manaPoint > maxManaPoint) 
-			manaPoint = maxManaPoint;
-
-		UpdateGraphics();
-	}
-	public void SetMaxMana(float max)
-	{
-		maxManaPoint += (int)(maxManaPoint * max / 100);
-		
-		UpdateGraphics();
-	}
-	*/
-	//==============================================================
-	// Update all Bars & Globes UI graphics
-	//==============================================================
+	
 	private void UpdateGraphics()
 	{
 		UpdateHealthBar();
@@ -187,15 +135,14 @@ public class HealthSystem : MonoBehaviour
 		//UpdateManaGlobe();
 	}
 
-	//==============================================================
-	// Coroutine Player Hurts
-	//==============================================================
+	
 	IEnumerator PlayerHurts()
 	{
-        // Player gets hurt. Do stuff.. play anim, sound..
-
-        //PopupText.Instance.Popup("Ouch!", 1f, 1f); // Demo stuff!
-        cinemachinechake.Instance.ShakeCamera(2f, .1f);//camera shake
+		// Player gets hurt. Do stuff.. play anim, sound..
+		flashActive = true;
+		flashCounter = flashLength;
+		//PopupText.Instance.Popup("Ouch!", 1f, 1f); // Demo stuff!
+		cinemachinechake.Instance.ShakeCamera(2f, .1f);//camera shake
         Debug.Log("ouch");
 		if (hitPoint < 1) // Health is Zero!!
 		{
@@ -206,9 +153,7 @@ public class HealthSystem : MonoBehaviour
 			yield return null;
 	}
 
-	//==============================================================
-	// Hero is dead
-	//==============================================================
+	
 	IEnumerator PlayerDied()
 	{
 		deathAnim.Play("Male_Death");
@@ -219,5 +164,43 @@ public class HealthSystem : MonoBehaviour
         gameOverScreen.SetActive(true);
 
        // yield return null;
+	}
+
+	public void Flash()
+	{
+		if (flashCounter > flashLength * .99f)
+		{
+			playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 0f);
+		}
+		else if (flashCounter > flashLength * .82f)
+		{
+			playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
+		}
+		else if (flashCounter > flashLength * .66f)
+		{
+			playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 0f);
+		}
+		else if (flashCounter > flashLength * .49f)
+		{
+			playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
+		}
+		else if (flashCounter > flashLength * .33f)
+		{
+			playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 0f);
+		}
+		else if (flashCounter > flashLength * .16f)
+		{
+			playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
+		}
+		else if (flashCounter > 0f)
+		{
+			playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 0f);
+		}
+		else
+		{
+			playerSprite.color = new Color(playerSprite.color.r, playerSprite.color.g, playerSprite.color.b, 1f);
+			flashActive = false;
+		}
+		flashCounter -= Time.deltaTime;
 	}
 }

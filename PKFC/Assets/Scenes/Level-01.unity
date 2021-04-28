@@ -902,7 +902,7 @@ GameObject:
   - component: {fileID: 219830790}
   - component: {fileID: 219830789}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: StatesListener
   m_TagString: StatusEffect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2829,6 +2829,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 826254117}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &569475296 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7075813180025788666, guid: a1a99de9bfa7b5349a30ac678925e460,
+    type: 3}
+  m_PrefabInstance: {fileID: 826254117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &593311452
 GameObject:
   m_ObjectHideFlags: 0
@@ -3966,9 +3972,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7075813180025788664, guid: a1a99de9bfa7b5349a30ac678925e460,
         type: 3}
+      propertyPath: deathAnim
+      value: 
+      objectReference: {fileID: 569475296}
+    - target: {fileID: 7075813180025788664, guid: a1a99de9bfa7b5349a30ac678925e460,
+        type: 3}
       propertyPath: healthText
       value: 
       objectReference: {fileID: 1937772786}
+    - target: {fileID: 7075813180025788664, guid: a1a99de9bfa7b5349a30ac678925e460,
+        type: 3}
+      propertyPath: flashLength
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075813180025788664, guid: a1a99de9bfa7b5349a30ac678925e460,
+        type: 3}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 1632446425}
     - target: {fileID: 7075813180025788664, guid: a1a99de9bfa7b5349a30ac678925e460,
         type: 3}
       propertyPath: currentHealthBar
