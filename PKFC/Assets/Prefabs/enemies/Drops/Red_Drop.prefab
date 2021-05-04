@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6001056160835782380}
   - component: {fileID: 6001056160835782383}
   - component: {fileID: 6001056160835782382}
+  - component: {fileID: 1627799555}
   m_Layer: 0
   m_Name: Red_Drop
   m_TagString: GDrop
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6001056160835782369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.3141407, y: -0.5093668, z: -1.3658057}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -116,3 +117,22 @@ MonoBehaviour:
   lifetime: 6
   destroyeffect: {fileID: 1530641707647139160, guid: ebb54c51d9545034f8cc2158b0f77976,
     type: 3}
+--- !u!95 &1627799555
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001056160835782369}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 461560c21ae6341449ae01e0d8958fb2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
