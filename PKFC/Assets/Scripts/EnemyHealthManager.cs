@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class EnemyHealthManager : MonoBehaviour
@@ -18,6 +19,9 @@ public class EnemyHealthManager : MonoBehaviour
     private SpriteRenderer enemySprite;
     public int damage;
     public HealthSystem pHealth;
+    private BarLogic bl;
+    private float delta_health;
+    public bool isdead = false;
 
 
 
@@ -27,6 +31,8 @@ public class EnemyHealthManager : MonoBehaviour
         pHealth= GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
         enemySprite = GetComponent<SpriteRenderer>();
         damage = 10;
+        bl = this.GetComponent<BarLogic>();
+        
     }
 
     
@@ -37,19 +43,22 @@ public class EnemyHealthManager : MonoBehaviour
             Flash();
         }
 
-        
     }
 
 
 
     public void HurtEnemy(int damageToGive)
     {
+        //delta_health = 1f / damageToGive;
+        //bl.UpdateBar(delta_health);
         cinemachinechake.Instance.ShakeCamera(3f, .1f);
         currentHealth -= damageToGive;
         flashActive = true;
         flashCounter = flashLength;
+        
         if (currentHealth <= 0)
         {
+            isdead = true;
             cinemachinechake.Instance.ShakeCamera(4f, .1f);
             Instantiate(destroyeffect, transform.position, Quaternion.identity);
             SoundManager.PlaySound("EnemyDeath");
@@ -103,7 +112,4 @@ public class EnemyHealthManager : MonoBehaviour
             pHealth.TakeDamage(damage);
         }
     }
-
-
-
 }

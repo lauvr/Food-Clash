@@ -17,9 +17,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField]
     private bool boss;
 
+
     void Start()
     {
-        
+
         if (boss == false)
         {
             target = GameObject.FindGameObjectWithTag("Player").transform;
