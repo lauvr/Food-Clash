@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6667688183910804722}
   - component: {fileID: 6667688183910804724}
   - component: {fileID: -5240893399286182225}
+  - component: {fileID: -7788525954726027772}
   m_Layer: 8
   m_Name: 'Pufferfish '
   m_TagString: Enemy
@@ -145,6 +146,7 @@ MonoBehaviour:
   flashLength: 0.5
   damage: 10
   pHealth: {fileID: 7075813180025788664, guid: a1a99de9bfa7b5349a30ac678925e460, type: 3}
+  isdead: 0
 --- !u!114 &6667688183910804722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,3 +198,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mov: {fileID: 0}
   player: {fileID: 0}
+  feedback: {fileID: 0}
+--- !u!114 &-7788525954726027772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6667688183910804717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5cfd93c67c754cb184716374ed37123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  starTimeBtwShots: 2
+  projectile: {fileID: 3170621739844557193, guid: 082f6af1aaea92f4b90ddaeec8ff1b92,
+    type: 3}

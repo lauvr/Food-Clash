@@ -163,7 +163,7 @@ public class HealthSystem : MonoBehaviour
         yield return new WaitForSeconds(2f);
         gameOverScreen.SetActive(true);
 
-       // yield return null;
+        yield return null;
 	}
 
 	public void Flash()

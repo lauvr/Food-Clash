@@ -21,13 +21,15 @@ public class PlayerMovement : MonoBehaviour
     private bool isDashing = false;
     public float dashDuration;
     private float dashDurationStart;
+    private float dashCooldown = 1.0f;
+    private float nextDash;
+
 
     private float attackTime = 0.5f;
     public float attackCounter = 0.5f;
     private bool isAttacking;
-
-
-
+    private float attackCooldown = 1.0f;
+    private float nextAttack;
 
     void Start()
     {
@@ -50,9 +52,10 @@ public class PlayerMovement : MonoBehaviour
                 isAttacking = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && Time.time > nextAttack)
         {
             Attack();
+            nextAttack = Time.time + attackCooldown;
         }
 
     }
@@ -95,12 +98,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isDashing == false)         //Dash PC
+        if (Input.GetKeyDown(KeyCode.Space) && isDashing == false && Time.time > nextDash)         //Dash PC
         {
             SoundManager.PlaySound("Player Dash");
             speed += dashSpeed;
             isDashing = true;
             dashDurationStart = dashDuration;
+            nextDash = Time.time + dashCooldown;
         }
         if (dashDurationStart <= 0 && isDashing == true)
         {
