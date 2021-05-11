@@ -7006,6 +7006,7 @@ MonoBehaviour:
   - {fileID: 8376740029461202403, guid: ef8bfbe226e744f939843ed0517ad0e6, type: 3}
   - {fileID: 8443714934374311622, guid: e8fff7698ab7f4be189155e301f73e5c, type: 3}
   - {fileID: 3639295554396366508, guid: 57d23790b8d4929419bc712844c53232, type: 3}
+  - {fileID: 2704770522814165175, guid: d2aad029b76cb4588b42de94ef47f716, type: 3}
   topRooms:
   - {fileID: 7917513283068388566, guid: 024edfede89a341d98dbe1bf00718ede, type: 3}
   - {fileID: 8443714934374311622, guid: e8fff7698ab7f4be189155e301f73e5c, type: 3}
@@ -12794,7 +12795,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.63600004, y: 0.098000005}
   m_AnchorMax: {x: 0.906, y: 0.592}
-  m_AnchoredPosition: {x: -6.65625, y: 6.123749}
+  m_AnchoredPosition: {x: -6.65625, y: 6.1237793}
   m_SizeDelta: {x: -91.70001, y: -119.19681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1885818764
