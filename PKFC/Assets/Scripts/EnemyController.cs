@@ -16,7 +16,8 @@ public class EnemyController : MonoBehaviour
     private bool meleeEnemy;
     [SerializeField]
     private bool boss;
-
+    [SerializeField]
+    private bool reverse;
 
     void Start()
     {
@@ -78,7 +79,35 @@ public class EnemyController : MonoBehaviour
 
     public void FollowPlayer(float a)
     {
+        Vector3 distance = target.position - transform.position;
         transform.position = Vector2.MoveTowards(transform.position, target.transform.position, a*speed * Time.deltaTime);
+        
+        if (boss == false)
+        {
+            if (reverse == false)
+            {
+                if (distance.x < 0)
+                {
+                    transform.localScale = new Vector3(-.5f, .5f, .5f);
+                }
+                else
+                {
+                    transform.localScale = new Vector3(.5f, .5f, .5f);
+                }
+            }
+            else
+            {
+                if (distance.x < 0)
+                {
+                    transform.localScale = new Vector3(.5f, .5f, .5f);
+                }
+                else
+                {
+                    transform.localScale = new Vector3(-.5f, .5f, .5f);
+                }
+            }
+        }
+        
 
     }
 

@@ -178,6 +178,7 @@ MonoBehaviour:
   minRange: 0.54
   meleeEnemy: 1
   boss: 0
+  reverse: 1
 --- !u!114 &7878733972028595288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,3 +199,4 @@ MonoBehaviour:
   flashLength: 0.5
   damage: 10
   pHealth: {fileID: 7075813180025788664, guid: a1a99de9bfa7b5349a30ac678925e460, type: 3}
+  isdead: 0

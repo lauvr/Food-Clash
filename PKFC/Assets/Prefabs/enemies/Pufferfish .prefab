@@ -165,6 +165,7 @@ MonoBehaviour:
   minRange: 0.54
   meleeEnemy: 1
   boss: 0
+  reverse: 1
 --- !u!95 &6667688183910804724
 Animator:
   serializedVersion: 3
