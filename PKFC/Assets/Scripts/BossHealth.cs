@@ -15,7 +15,7 @@ public class BossHealth : MonoBehaviour
     private float flashLength = 0f;
     private float flashCounter = 0f;
     private SpriteRenderer enemySprite;
-
+    public event EventHandler OnWinning;
     public event EventHandler<OnDamagetakenEventArgs> OnDamageTaken;
     public class OnDamagetakenEventArgs : EventArgs
     {
@@ -39,6 +39,7 @@ public class BossHealth : MonoBehaviour
         flashCounter = flashLength;
         if (currentHealth <= 0)
         {
+            OnWinning?.Invoke(this,EventArgs.Empty);
             cinemachinechake.Instance.ShakeCamera(4f, .1f);
             Instantiate(destroyeffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
