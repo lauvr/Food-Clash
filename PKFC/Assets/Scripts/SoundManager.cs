@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static AudioClip playerAttack, playerDash, playerDeath, shoot, impact, enemyDeath;
+    public static AudioClip playerAttack, playerDash, playerDeath, shoot, impact, enemyDeath, potion;
     static AudioSource audioSrc;
 
 
@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
         shoot = Resources.Load<AudioClip>("Shoot");
         impact = Resources.Load<AudioClip>("Impact");
         enemyDeath = Resources.Load<AudioClip>("EnemyDeath");
+        potion = Resources.Load<AudioClip>("PotionDrink");
 
         audioSrc = GetComponent<AudioSource>();
 
@@ -50,7 +51,9 @@ public class SoundManager : MonoBehaviour
                 audioSrc.PlayOneShot(enemyDeath);
                 break;
 
-
+            case "PotionDrink":
+                audioSrc.PlayOneShot(potion);
+                break;
         }
     }
 

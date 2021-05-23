@@ -12,7 +12,8 @@ public class Potions : MonoBehaviour
     public Collider2D player;
     private HurtEnemy enemyHp;
     public bool isRunning;
-
+    public ParticleSystem effect;
+    public Transform effectSpawn;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,9 @@ public class Potions : MonoBehaviour
             if(health.hitPoint < health.maxHitPoint)
             {
                 health.hitPoint += 15;
+                SpawnEffect();
                 inv.rpotion -= 1;
+                SoundManager.PlaySound("PotionDrink");
             }
             else
             {
@@ -54,6 +57,8 @@ public class Potions : MonoBehaviour
         if (inv.bpotion > 0)
         {
             StartCoroutine("Bpotion");
+            SpawnEffect();
+            SoundManager.PlaySound("PotionDrink");
         }
         else
         {
@@ -67,6 +72,8 @@ public class Potions : MonoBehaviour
         if (inv.gpotion > 0)
         {
             StartCoroutine("Gpotion");
+            SpawnEffect();
+            SoundManager.PlaySound("PotionDrink");
         }
         else
         {
@@ -91,4 +98,11 @@ public class Potions : MonoBehaviour
         isRunning = false;
     }
 
+
+    public void SpawnEffect()
+    {
+        Instantiate(effect, effectSpawn);
+        //Destroy(gameObject);
+    }
+   
 }
