@@ -9,8 +9,9 @@ public class Burned : MonoBehaviour
     public HealthSystem health;
     public Collider2D player;
     public StatusListener feedback;
+    int critchance;
 
-    
+
 
     public List<int> burnTickTimers = new List<int>();
 
@@ -31,14 +32,19 @@ public class Burned : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            player = other;
-            if (health == null)
+            critchance = Random.Range(0, 5);
+            if (critchance == 3)
             {
-                health = player.GetComponent<HealthSystem>();
-            }
-            BurnPlayer(4);
+                player = other;
+                if (health == null)
+                {
+                    health = player.GetComponent<HealthSystem>();
+                }
+                BurnPlayer(4);
 
-            Debug.Log("Burned!");
+                Debug.Log("Burned!");
+            }
+            
 
         }
     }

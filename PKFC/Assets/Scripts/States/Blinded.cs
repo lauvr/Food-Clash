@@ -9,6 +9,7 @@ public class Blinded : MonoBehaviour
     
     public Collider2D player;
     int currentDamage;
+    int critchance ;
 
     public StatusListener feedback;
 
@@ -32,10 +33,15 @@ public class Blinded : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            player = other;
-            BlindPlayer();
+            critchance = Random.Range(0, 5);
+            if (critchance == 3)
+            {
+                player = other;
+                BlindPlayer();
 
-            Debug.Log("Blinded!");
+                Debug.Log("Blinded!");
+            }
+            
 
         }
     }

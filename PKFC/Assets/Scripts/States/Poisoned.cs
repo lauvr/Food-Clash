@@ -10,6 +10,7 @@ public class Poisoned : MonoBehaviour
     public PlayerMovement mov;
     public Collider2D player;
     public StatusListener feedback;
+    int critchance;
 
     UnityEvent onPoisoned;
 
@@ -28,10 +29,15 @@ public class Poisoned : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Poisoned!");
-            player = other;
-            mov = player.GetComponent<PlayerMovement>();
-            PoisonPlayer();
+            critchance = Random.Range(0, 5);
+            if (critchance == 3)
+            {
+                Debug.Log("Poisoned!");
+                player = other;
+                mov = player.GetComponent<PlayerMovement>();
+                PoisonPlayer();
+            }
+            
 
             
 
