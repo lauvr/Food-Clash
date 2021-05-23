@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour
     public Joystick joystick;
     public Button dashButton;
     public Button attackButton;
+    [SerializeField]
+    private ParticleSystem movePS;
+    [SerializeField]
+    private ParticleSystem dashPS;
 
     [SerializeField]
     public float speed;
@@ -82,13 +86,18 @@ public class PlayerMovement : MonoBehaviour
 
         input = new Vector3(horizontal, vertical, 0);
         Vector3 velocity = input.normalized * speed;
+        CreateDust();
         transform.position += velocity * Time.deltaTime;
+        
 
         animator.SetFloat("moveX", horizontal);
+        
         animator.SetFloat("moveY", vertical);
+        CreateDust();
 
         if (horizontal == 1 || horizontal == -1 || vertical == 1 || vertical == -1)
         {
+            
             animator.SetFloat("lastMoveX", horizontal);
             animator.SetFloat("lastMoveY", vertical);
         }
@@ -101,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isDashing == false && Time.time > nextDash)         //Dash PC
         {
             SoundManager.PlaySound("Player Dash");
+            DashDust();
             speed += dashSpeed;
             isDashing = true;
             dashDurationStart = dashDuration;
@@ -154,5 +164,14 @@ public class PlayerMovement : MonoBehaviour
         animator.SetBool("isAttacking", true);
         isAttacking = true;
 
+    }
+
+    public void CreateDust()
+    {
+        movePS.Play();
+    }
+    public void DashDust()
+    {
+        dashPS.Play();
     }
 }

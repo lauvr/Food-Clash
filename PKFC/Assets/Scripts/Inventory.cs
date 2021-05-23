@@ -16,6 +16,7 @@ public class Inventory : MonoBehaviour, IShopCustomer
     private Text redp;
     [SerializeField]
     private Text bluep;
+    private Material currentMat;
     public int gdrop;
     public int rdrop;
     public int bdrop;
@@ -135,3 +136,4 @@ public class Inventory : MonoBehaviour, IShopCustomer
         }
     }
 }
+
