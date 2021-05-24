@@ -7,24 +7,27 @@ public class Bosslife : MonoBehaviour
 {
     [SerializeField]
     private int bossh;
+    [SerializeField]
     private Slider healthbar;
     // Start is called before the first frame update
     void Start()
     {
-        healthbar = GetComponent<Slider>();
-        healthbar.value = bossh;
+       // healthbar = GetComponent<Slider>();
+        
         BossHealth bosshealth = GetComponent<BossHealth>();
-        bosshealth.OnDamageTaken += Bosshealth_OnDamageTaken;
+
+       // bosshealth.OnDamageTaken += Bosshealth_OnDamageTaken;
+
     }
 
-    private void Bosshealth_OnDamageTaken(object sender, BossHealth.OnDamagetakenEventArgs e)
+    /*private void Bosshealth_OnDamageTaken(object sender, BossHealth.OnDamagetakenEventArgs e)
     {
         healthbar.value = e.health;
     }
-
+    */
     // Update is called once per frame
     void Update()
     {
-        
+        //healthbar.value = health;
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BossHealth : MonoBehaviour
 {
-
+    public Slider healthbar;
     public int currentHealth;
     public int maxHealth;
     [SerializeField]
@@ -23,6 +23,7 @@ public class BossHealth : MonoBehaviour
     }
     void Start()
     {
+        healthbar.value = maxHealth;
         enemySprite = GetComponent<SpriteRenderer>();
     }
 
@@ -33,8 +34,10 @@ public class BossHealth : MonoBehaviour
     {
         Debug.Log("Damage boss");
         cinemachinechake.Instance.ShakeCamera(3f, .1f);
+        
         currentHealth -= damageToGive;
-        OnDamageTaken?.Invoke(this, new OnDamagetakenEventArgs { health=currentHealth});
+        healthbar.value -= currentHealth;
+        // OnDamageTaken?.Invoke(this, new OnDamagetakenEventArgs { health=currentHealth});
         flashActive = true;
         flashCounter = flashLength;
         if (currentHealth <= 0)

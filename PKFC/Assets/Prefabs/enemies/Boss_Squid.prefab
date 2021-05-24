@@ -217,6 +217,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d1d06ab0a75a3488fc17f240ec65e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthbar: {fileID: 7187155446191068045, guid: a9d33212df4dfed4c84521c4e59e6ddb,
+    type: 3}
   currentHealth: 100
   maxHealth: 100
   destroyeffect: {fileID: 7951446342096719897, guid: 9108dbf037fec264abc49d39b4d8825d,
@@ -345,6 +347,7 @@ MonoBehaviour:
   minRange: 1
   meleeEnemy: 1
   boss: 1
+  reverse: 0
 --- !u!1 &347894514240692684
 GameObject:
   m_ObjectHideFlags: 0

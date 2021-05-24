@@ -20,6 +20,7 @@ TagManager:
   - StatusEffect
   - Chest
   - Boss
+  - trigger
   layers:
   - Default
   - TransparentFX
