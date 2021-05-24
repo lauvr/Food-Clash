@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
-public class EnemyHealthManager : MonoBehaviour
+public class TutorialEnemy : MonoBehaviour
 {
 
     public int currentHealth;
@@ -29,15 +30,15 @@ public class EnemyHealthManager : MonoBehaviour
 
     void Start()
     {
-        pHealth= GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
+        pHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<HealthSystem>();
         enemySprite = GetComponent<SpriteRenderer>();
         damage = 10;
         bl = this.GetComponent<BarLogic>();
         pm = GetComponent<PauseMenu>();
-        
+
     }
 
-    
+
     void Update()
     {
         if (flashActive)
@@ -57,7 +58,7 @@ public class EnemyHealthManager : MonoBehaviour
         currentHealth -= damageToGive;
         flashActive = true;
         flashCounter = flashLength;
-        
+
         if (currentHealth <= 0)
         {
             isdead = true;
@@ -65,7 +66,9 @@ public class EnemyHealthManager : MonoBehaviour
             Instantiate(destroyeffect, transform.position, Quaternion.identity);
             SoundManager.PlaySound("EnemyDeath");
             Instantiate(drop, transform.position, Quaternion.identity);
+            LoadLevelOne();
             Destroy(gameObject);
+
         }
     }
 
@@ -113,5 +116,9 @@ public class EnemyHealthManager : MonoBehaviour
         {
             pHealth.TakeDamage(damage);
         }
+    }
+    public void LoadLevelOne()
+    {
+        SceneManager.LoadScene("Level 01");
     }
 }
