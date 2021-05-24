@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HurtEnemy : MonoBehaviour
 {
@@ -9,10 +10,12 @@ public class HurtEnemy : MonoBehaviour
     [SerializeField]
     private Potions potions;
     public int currentDmg;
+    private EnemyHealthManager ehm;
 
     void Start()
     {
         damageToGive = 20;
+        ehm = GetComponent<EnemyHealthManager>();
     }
 
     // Update is called once per frame
@@ -48,5 +51,8 @@ public class HurtEnemy : MonoBehaviour
             eHealthMan.HurtEnemy(damageToGive);
         }
     }
+
+
+
 
 }

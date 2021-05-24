@@ -21,6 +21,7 @@ TagManager:
   - Chest
   - Boss
   - trigger
+  - TutorialEnemy
   layers:
   - Default
   - TransparentFX
