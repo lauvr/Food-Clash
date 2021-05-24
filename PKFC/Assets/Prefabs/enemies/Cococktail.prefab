@@ -105,6 +105,7 @@ MonoBehaviour:
   minRange: 0.54
   meleeEnemy: 1
   boss: 0
+  reverse: 0
 --- !u!114 &6123528291341862025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,7 +152,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.8
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -196,3 +197,4 @@ MonoBehaviour:
   flashLength: 0.5
   damage: 5
   pHealth: {fileID: 7075813180025788664, guid: a1a99de9bfa7b5349a30ac678925e460, type: 3}
+  isdead: 0

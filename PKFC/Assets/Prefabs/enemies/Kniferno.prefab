@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7093068189820434758}
   - component: {fileID: 7093068189820434812}
   m_Layer: 8
-  m_Name: 'Kniferno '
+  m_Name: Kniferno
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
-  speed: 1
+  speed: 1.2
   maxRange: 3
   minRange: 0.54
   meleeEnemy: 1

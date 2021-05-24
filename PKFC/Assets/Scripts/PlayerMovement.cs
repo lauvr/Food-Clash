@@ -70,6 +70,11 @@ public class PlayerMovement : MonoBehaviour
             cinemachinechake.Instance.ShakeCamera(1.4f, .1f); // con solo esta linea de codigo ya se puede aplicar el shake de la camara, se le asigna primero la intensidad y luego la duracion
             //HealthSystem.Instance.TakeDamage(10);   //Me dio retraso y el jugador estaba recibiendo daño cuando atacaba al enemigo
         }
+        else if (other.CompareTag("tentaculo"))
+        {
+            cinemachinechake.Instance.ShakeCamera(1.4f, .1f); // con solo esta linea de codigo ya se puede aplicar el shake de la camara, se le asigna primero la intensidad y luego la duracion
+            //HealthSystem.Instance.TakeDamage(10);   //Me dio retraso y el jugador estaba recibiendo daño cuando atacaba al enemigo
+        }
     }
 
     public void Move()

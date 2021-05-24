@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 9079043173734517153}
   m_Layer: 0
   m_Name: Crying_Onion
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,6 +105,7 @@ MonoBehaviour:
   minRange: 1
   meleeEnemy: 0
   boss: 0
+  reverse: 0
 --- !u!114 &6137027031697105730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,7 +133,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.8
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -196,3 +197,4 @@ MonoBehaviour:
   flashLength: 0.5
   damage: 5
   pHealth: {fileID: 7075813180025788664, guid: a1a99de9bfa7b5349a30ac678925e460, type: 3}
+  isdead: 0
