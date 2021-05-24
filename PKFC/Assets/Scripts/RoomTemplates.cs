@@ -24,7 +24,7 @@ public class RoomTemplates : MonoBehaviour
         {
             int lastPosition = rooms.Count - 1;
             GameObject finalRoom = rooms[lastPosition];
-            Destroy(rooms[lastPosition]);
+            //Destroy(rooms[lastPosition]);
             Instantiate(bossRoom, finalRoom.transform.position, bossRoom.transform.rotation);
             Instantiate(boss, rooms[lastPosition].transform.position, Quaternion.identity);
             spawnedBoss = true;

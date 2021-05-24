@@ -1120,6 +1120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Portal: {fileID: 1466514687}
   Player: {fileID: 569475291}
+  teleportPS: {fileID: 0}
+  psSpawn: {fileID: 0}
 --- !u!61 &255787774
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8298,12 +8300,13 @@ MonoBehaviour:
   - {fileID: 102664626044885021, guid: 8154a9d9014be8c4f974cd958f8cac7e, type: 3}
   - {fileID: 102664626044885021, guid: 8154a9d9014be8c4f974cd958f8cac7e, type: 3}
   - {fileID: 102664626044885021, guid: 8154a9d9014be8c4f974cd958f8cac7e, type: 3}
-  bossRoom: {fileID: 0}
+  bossRoom: {fileID: 4403584083143543478, guid: 0cb525d6ef10a4fc3a11777d24962b02,
+    type: 3}
   closedRoom: {fileID: 245011673773196913, guid: 8cda38c1490f34b5794294853f2e8378,
     type: 3}
   rooms: []
   waitTime: 2
-  boss: {fileID: 5858408260974089516, guid: 931abba4fa775e340806847ee707671c, type: 3}
+  boss: {fileID: 347894513882303863, guid: 6ca139bf57ee47a42a029cd87498c8ef, type: 3}
 --- !u!4 &1163488779
 Transform:
   m_ObjectHideFlags: 0
@@ -11266,6 +11269,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Portal: {fileID: 0}
   Player: {fileID: 0}
+  teleportPS: {fileID: 0}
+  psSpawn: {fileID: 0}
 --- !u!4 &1466514689
 Transform:
   m_ObjectHideFlags: 0
