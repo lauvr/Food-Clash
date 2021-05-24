@@ -133,6 +133,7 @@ public class PlayerMovement : MonoBehaviour
         if (isDashing == false)  //Dash Celular
         {
             SoundManager.PlaySound("Player Dash");
+            DashDust();
             speed += dashSpeed;
             isDashing = true;
             dashDurationStart = dashDuration;

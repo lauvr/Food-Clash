@@ -52,6 +52,6 @@ public class PauseMenu : MonoBehaviour
 
     public void GiveUp()
     {
-        SceneManager.LoadScene("Level-01");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
