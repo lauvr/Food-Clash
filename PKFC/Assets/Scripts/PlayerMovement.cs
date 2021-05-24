@@ -10,8 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Joystick joystick;
     public Button dashButton;
     public Button attackButton;
-    [SerializeField]
-    private ParticleSystem movePS;
+
     [SerializeField]
     private ParticleSystem dashPS;
 
@@ -86,14 +85,14 @@ public class PlayerMovement : MonoBehaviour
 
         input = new Vector3(horizontal, vertical, 0);
         Vector3 velocity = input.normalized * speed;
-        CreateDust();
+        
         transform.position += velocity * Time.deltaTime;
         
 
         animator.SetFloat("moveX", horizontal);
         
         animator.SetFloat("moveY", vertical);
-        CreateDust();
+        
 
         if (horizontal == 1 || horizontal == -1 || vertical == 1 || vertical == -1)
         {
@@ -169,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void CreateDust()
     {
-        movePS.Play();
+        //movePS.Play();
     }
     public void DashDust()
     {

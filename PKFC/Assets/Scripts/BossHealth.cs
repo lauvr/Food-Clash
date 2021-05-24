@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class BossHealth : MonoBehaviour
 {
+    private GameObject victory;
     public Slider healthbar;
     public int currentHealth;
     public int maxHealth;
@@ -23,6 +24,8 @@ public class BossHealth : MonoBehaviour
     }
     void Start()
     {
+        victory = GameObject.Find("Victory Screen");
+        victory.SetActive(false);
         healthbar.value = maxHealth;
         enemySprite = GetComponent<SpriteRenderer>();
     }
@@ -38,11 +41,13 @@ public class BossHealth : MonoBehaviour
         currentHealth -= damageToGive;
         healthbar.value -= currentHealth;
         // OnDamageTaken?.Invoke(this, new OnDamagetakenEventArgs { health=currentHealth});
+        //Flash();
         flashActive = true;
         flashCounter = flashLength;
         if (currentHealth <= 0)
         {
-            OnWinning?.Invoke(this,EventArgs.Empty);
+            victory.SetActive(true);
+            //OnWinning?.Invoke(this,EventArgs.Empty);
             cinemachinechake.Instance.ShakeCamera(4f, .1f);
             Instantiate(destroyeffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
